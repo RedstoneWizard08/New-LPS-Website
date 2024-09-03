@@ -1,0 +1,11 @@
+*.md
+LICENSE
+dist
+build
+node_modules
+out
+output
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+bun.lockb

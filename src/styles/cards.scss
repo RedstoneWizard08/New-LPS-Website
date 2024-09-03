@@ -1,0 +1,21 @@
+@import "./mixins.scss";
+
+.bmc {
+    @include bg-img("../images/better_mc.png");
+}
+
+.abyss {
+    @include bg-img("../images/the_abyss.png");
+}
+
+.mmc {
+    @include bg-img("../images/medieval_mc.png");
+}
+
+.wda {
+    @include bg-img("../images/when_dungeons_arise.png");
+}
+
+.eab {
+    @include bg-img("../images/eternal_abyss.png");
+}

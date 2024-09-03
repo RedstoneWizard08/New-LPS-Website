@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+
+import banner from "../images/banner.png";
+import { Icon } from "astro-icon/components";
+---
+
+<div
+    class="w-full bg-dark pos-fixed p-2 flex flex-row justify-between items-center"
+>
+    <div class="flex flex-row justify-start items-center">
+        <Image src={banner} alt="Luna Pixel Studios Logo" class="w-10% mr-5" />
+        <a href="/" class="font-mc-mono text-lg mr-5 underline">Home</a>
+        <a
+            href="https://www.curseforge.com/members/lunapixelstudios/projects"
+            class="font-mc-mono text-lg mr-5 underline">Projects</a
+        >
+        <a
+            href="https://www.bisecthosting.com/LunaPixel"
+            class="font-mc-mono text-lg underline">Hosting</a
+        >
+    </div>
+
+    <div class="flex flex-row justify-start items-center">
+        <a href="https://twitter.com/lunapixelstudio" class="mr-5"
+            ><Icon name="fa6-brands:twitter" /></a
+        >
+
+        <a href="https://discord.gg/8ZmhaPPbjE" class="mr-5"
+            ><Icon name="fa6-brands:discord" /></a
+        >
+
+        <a href="https://www.patreon.com/LunaPixelStudios"
+            ><Icon name="fa6-brands:patreon" /></a
+        >
+    </div>
+</div>
