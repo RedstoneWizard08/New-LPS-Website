@@ -1,39 +1,51 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, envField } from "astro/config";
 import icon from "astro-icon";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import unocss from "unocss/astro";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [
-        icon(),
-        robotsTxt(),
-        sitemap(),
-        mdx(),
-        unocss({
-            injectReset: true,
-        }),
-    ],
+  output: "server",
 
-    server: {
-        port: 4000,
-    },
+  integrations: [
+      icon(),
+      robotsTxt(),
+      sitemap(),
+      mdx(),
+      unocss({
+          injectReset: true,
+      }),
+  ],
 
-    vite: {
-        server: {
-            port: 4000,
-            strictPort: true,
+  server: {
+      port: 4000,
+  },
 
-            hmr: {
-                port: 4000,
-                clientPort: 443,
-                protocol: "wss",
-            },
-        },
-    },
+  vite: {
+      server: {
+          port: 4000,
+          strictPort: true,
 
-    site: "https://redstonewizard08.github.io",
-    base: "New-LPS-Website",
+          hmr: {
+              port: 4000,
+              clientPort: 443,
+              protocol: "wss",
+          },
+      },
+  },
+
+  experimental: {
+      env: {
+          schema: {
+              CURSEFORGE_KEY: envField.string({ context: "server", access: "secret" }),
+          },
+      },
+  },
+
+//   site: import.meta.env.CI ? "https://redstonewizard08.github.io" : undefined,
+//   base: import.meta.env.CI ? "New-LPS-Website" : undefined,
+  adapter: cloudflare(),
 });
