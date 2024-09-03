@@ -8,44 +8,52 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  output: "server",
+    output: "server",
 
-  integrations: [
-      icon(),
-      robotsTxt(),
-      sitemap(),
-      mdx(),
-      unocss({
-          injectReset: true,
-      }),
-  ],
+    integrations: [
+        icon(),
+        robotsTxt(),
+        sitemap(),
+        mdx(),
+        unocss({
+            injectReset: true,
+        }),
+    ],
 
-  server: {
-      port: 4000,
-  },
+    server: {
+        port: 4000,
+    },
 
-  vite: {
-      server: {
-          port: 4000,
-          strictPort: true,
+    vite: {
+        server: {
+            port: 4000,
+            strictPort: true,
 
-          hmr: {
-              port: 4000,
-              clientPort: 443,
-              protocol: "wss",
-          },
-      },
-  },
+            hmr: {
+                port: 4000,
+                clientPort: 443,
+                protocol: "wss",
+            },
+        },
+    },
 
-  experimental: {
-      env: {
-          schema: {
-              CURSEFORGE_KEY: envField.string({ context: "server", access: "secret" }),
-          },
-      },
-  },
+    experimental: {
+        env: {
+            schema: {
+                CURSEFORGE_KEY: envField.string({
+                    context: "server",
+                    access: "secret",
+                }),
+                REDSTONE_IS_DUMB: envField.number({
+                    context: "server",
+                    access: "public",
+                    default: 0,
+                }),
+            },
+        },
+    },
 
-//   site: import.meta.env.CI ? "https://redstonewizard08.github.io" : undefined,
-//   base: import.meta.env.CI ? "New-LPS-Website" : undefined,
-  adapter: cloudflare(),
+    //   site: import.meta.env.CI ? "https://redstonewizard08.github.io" : undefined,
+    //   base: import.meta.env.CI ? "New-LPS-Website" : undefined,
+    adapter: cloudflare(),
 });

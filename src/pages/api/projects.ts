@@ -7,7 +7,7 @@ let cache: Project[] | undefined = undefined;
 let cachedTime = 0;
 
 const hasCacheExpired = () =>
-    cachedTime + (1 /*h*/ * 60 /*m*/ * 60 /*s*/ * 1000 /*ms*/) <= Date.now();
+    cachedTime + 1 /*h*/ * 60 /*m*/ * 60 /*s*/ * 1000 /*ms*/ <= Date.now();
 
 const getCachedValue = async () => {
     // CurseForge please make a proper API for this (or document one)
