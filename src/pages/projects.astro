@@ -1,0 +1,37 @@
+---
+import type { Project as ProjectData } from "../api/schema/projects";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Project from "../components/Project.astro";
+import Layout from "../layouts/Layout.astro";
+
+const data: ProjectData[] = await fetch(
+    new URL("/api/projects", Astro.url),
+).then((v) => v.json());
+---
+
+<Layout title="Luna Pixel Studios | Home">
+    <main class="w-full h-full m-0 p-0 b-0">
+        <Header />
+
+        <div class="w-full mt-2.5rem p-2rem">
+            <p class="text-3xl font-mc mb-5">Projects</p>
+
+            <div class="grid grid-cols-3 items">
+                {
+                    data
+                        .sort((a, b) => b.downloads - a.downloads)
+                        .map((v) => <Project data={v} />)
+                }
+            </div>
+        </div>
+
+        <Footer />
+    </main>
+</Layout>
+
+<style lang="scss">
+    .items {
+        grid-gap: 10px;
+    }
+</style>

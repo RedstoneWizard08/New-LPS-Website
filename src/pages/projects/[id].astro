@@ -1,0 +1,119 @@
+---
+import type { CurseForgeMod } from "curseforge-api";
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../../layouts/Layout.astro";
+import { formatNumber } from "../../api/fmt";
+import { marked } from "marked";
+import { Icon } from "astro-icon/components";
+
+const { id } = Astro.params;
+
+const data: CurseForgeMod = await fetch(
+    new URL(`/api/projects/${id}`, Astro.url),
+).then((v) => v.json());
+
+const desc: string = await fetch(
+    new URL(`/api/projects/${id}/desc`, Astro.url),
+).then((v) => v.text());
+
+const download = `${data.links.websiteUrl}/files/${data.mainFileId}/download`;
+const downloads = formatNumber(data.downloadCount);
+---
+
+<Layout title="Luna Pixel Studios | Home">
+    <main class="w-full h-full m-0 p-0 b-0">
+        <Header />
+
+        <div class="w-full p-2rem">
+            <div
+                class="flex flex-row items-center justify-between pb-4 pt-4 position-fixed header bg-cdark"
+            >
+                <div class="flex flex-row items-center justify-start">
+                    <img
+                        src={data.logo.url}
+                        alt={data.name}
+                        class="w-5rem rd-lg"
+                    />
+
+                    <div class="flex flex-col ml-5">
+                        <a
+                            class="text-3xl font-mc flex flex-row items-center justify-start"
+                            href={data.links.websiteUrl}
+                            target="_blank"
+                            >{data.name}
+                            <Icon
+                                name="fa6-solid:arrow-up-right-from-square"
+                                class="ml-4 text-20pt text-green hover:color-green-8 transition-all transition-duration-250"
+                            /></a
+                        >
+
+                        <p
+                            class="text-xl font-mc-mono flex flex-row items-center justify-start"
+                        >
+                            by {data.authors[0].name} | {downloads}
+                            Downloads
+                        </p>
+                    </div>
+                </div>
+
+                <div class="flex flex-row items-center justify-end">
+                    <a
+                        href={download}
+                        class="flex flex-row items-center justify-end bg-green-6 p-2 pl-3 pr-3 rd-lg font-mc-mono hover:bg-green-8 transition-all transition-duration-250"
+                    >
+                        <Icon name="fa6-solid:arrow-down" class="mr-3" />
+                        Download</a
+                    >
+                </div>
+            </div>
+
+            <div set:html={desc} class="project-desc mt-8rem" />
+
+            <script>
+                const desc = document.querySelector(".project-desc")!;
+                const spoilers = desc.querySelectorAll(".spoiler");
+
+                for (const spoiler of spoilers) {
+                    const el = document.createElement("button");
+
+                    el.className =
+                        "spoiler-opener font-mc-mono rd-lg color-green-6 hover:color-green-2 transition-all transition-duration-250";
+                    el.innerText = "Show Spoiler";
+
+                    el.addEventListener("click", () => {
+                        spoiler.classList.toggle("active");
+                    });
+
+                    desc.insertBefore(el, spoiler);
+                }
+            </script>
+        </div>
+
+        <Footer />
+    </main>
+</Layout>
+
+<style lang="scss">
+    .header {
+        width: calc(100% - 4rem);
+    }
+</style>
+
+<style lang="scss" is:global>
+    .project-desc {
+        a {
+            text-decoration: underline;
+        }
+
+        .spoiler {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.25s ease;
+
+            &.active {
+                max-height: unset;
+            }
+        }
+    }
+</style>

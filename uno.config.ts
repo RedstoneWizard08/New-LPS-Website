@@ -6,5 +6,11 @@ export default defineConfig({
             mc: "Minecraft Ten",
             "mc-mono": "Monocraft",
         },
+
+        colors: {
+            cdark: {
+                DEFAULT: "#13151a",
+            },
+        },
     },
 });

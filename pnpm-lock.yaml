@@ -44,6 +44,9 @@ importers:
       humanoid-js:
         specifier: ^1.0.1
         version: 1.0.1
+      marked:
+        specifier: ^14.1.0
+        version: 14.1.0
       node-html-parser:
         specifier: ^6.1.13
         version: 6.1.13
@@ -61,6 +64,12 @@ importers:
         version: 5.5.4
     devDependencies:
       '@iconify-json/fa6-brands':
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@iconify-json/fa6-regular':
+        specifier: ^1.2.0
+        version: 1.2.0
+      '@iconify-json/fa6-solid':
         specifier: ^1.2.0
         version: 1.2.0
       '@iconify/icons-fa6-brands':
@@ -934,6 +943,12 @@ packages:
 
   '@iconify-json/fa6-brands@1.2.0':
     resolution: {integrity: sha512-2f5AeUbufKeU/JY+cbX6dOsPaQO1WwfShfoxwRd5VRF3Lr1jGM8CfXLFhb8bonAqbue1oBPwmjHUfaCafAfo2A==}
+
+  '@iconify-json/fa6-regular@1.2.0':
+    resolution: {integrity: sha512-nUt9wd2wWxOWhnUE1RK8zCHgUKFmbCNir8iiJuo/r7oDXAJ9OlEN8Pj/XkX9tgrBGPN8mxgbdIJgzpZUIlN61w==}
+
+  '@iconify-json/fa6-solid@1.2.0':
+    resolution: {integrity: sha512-hywmSkhPqay1lBtEltuGhawtUpq18Yyko8H2e3/artvTv5Eey1hz7OdBA2cXRwiES17KrkmXGoLDwNtkcpN4cw==}
 
   '@iconify/icons-fa6-brands@1.2.11':
     resolution: {integrity: sha512-M45384DjmylDO74UJpL1E//B8R0bKu36Tkf80w394Iuo7BP5u1k4Ca3QgB9L5NzMyIwbhAKKEBFOo0NcfsSg5Q==}
@@ -2773,6 +2788,11 @@ packages:
 
   markdown-table@3.0.3:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
+
+  marked@14.1.0:
+    resolution: {integrity: sha512-P93GikH/Pde0hM5TAXEd8I4JAYi8IB03n8qzW8Bh1BIEFpEyBoYxi/XWZA53LSpTeLBiMQOoSMj0u5E/tiVYTA==}
+    engines: {node: '>= 18'}
+    hasBin: true
 
   marky@1.2.5:
     resolution: {integrity: sha512-q9JtQJKjpsVxCRVgQ+WapguSbKC3SQ5HEzFGPAJMStgh3QjCawp00UKv3MTTAArTmGmmPUvllHZoNbZ3gs0I+Q==}
@@ -5020,6 +5040,14 @@ snapshots:
     dependencies:
       '@iconify/types': 2.0.0
 
+  '@iconify-json/fa6-regular@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
+  '@iconify-json/fa6-solid@1.2.0':
+    dependencies:
+      '@iconify/types': 2.0.0
+
   '@iconify/icons-fa6-brands@1.2.11':
     dependencies:
       '@iconify/types': 2.0.0
@@ -7209,6 +7237,8 @@ snapshots:
   markdown-extensions@2.0.0: {}
 
   markdown-table@3.0.3: {}
+
+  marked@14.1.0: {}
 
   marky@1.2.5: {}
 
