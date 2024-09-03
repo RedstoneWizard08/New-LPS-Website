@@ -8,13 +8,13 @@ import unocss from "unocss/astro";
 // https://astro.build/config
 export default defineConfig({
     integrations: [
-      icon(),
-      robotsTxt(),
-      sitemap(),
-      mdx(),
-      unocss({
-        injectReset: true,
-      }),
+        icon(),
+        robotsTxt(),
+        sitemap(),
+        mdx(),
+        unocss({
+            injectReset: true,
+        }),
     ],
 
     server: {

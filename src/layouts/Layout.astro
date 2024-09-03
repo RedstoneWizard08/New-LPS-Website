@@ -9,11 +9,15 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
+        <!-- Yes I copied the description from Bisect Hosting. Deal with it. -->
+        <meta
+            name="description"
+            content="Luna Pixel Studios is a Minecraft Modpack and Mod Development Studio based around creating mainly Vanilla+, Adventure and RPG Modpacks and Mods, as well as a hub for all things Modded Minecraft."
+        />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/png" href="/favicon.png" />
         <meta name="generator" content={Astro.generator} />
@@ -25,7 +29,8 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-    html, body {
+    html,
+    body {
         font-family: system-ui, sans-serif;
         background: #13151a;
         width: 100%;
