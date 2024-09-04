@@ -1,6 +1,7 @@
-import type { CurseForgeClient, CurseForgeMod } from "curseforge-api";
 import type { ModrinthProject } from "./modrinth/project";
 import type { ModrinthMember } from "./modrinth/members";
+import { getModDescription } from "../curseforge";
+import type { CurseForgeMod } from "./curseforge/mod";
 
 export type Source = "curseforge" | "modrinth";
 
@@ -24,7 +25,6 @@ export interface CommonProject {
 }
 
 export const mapCurseModToCommon = async (
-    client: CurseForgeClient,
     curse: CurseForgeMod,
 ): Promise<CommonProject> => {
     return {
@@ -37,7 +37,7 @@ export const mapCurseModToCommon = async (
         author: curse.authors[0].name,
         downloadLink: `${curse.links.websiteUrl}/files/${curse.mainFileId}/download`,
         iconUrl: curse.logo.url,
-        description: await client.getModDescription(curse.id),
+        description: await getModDescription(curse.id),
         summary: curse.summary,
         source: "curseforge",
         sources: {
