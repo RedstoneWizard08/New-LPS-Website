@@ -61,7 +61,7 @@ export const mapModrinthToCommon = async (
 
         const member = members.find((v) => v.role == "Owner") || members[0];
 
-        await new Promise((res, _rej) => setTimeout(res, 1000));
+        await new Promise((res, _rej) => setTimeout(res, 1000)); // ratelimit :whyToDETH:
 
         author = member.user.username;
     }
