@@ -22,11 +22,7 @@ export const getAllProjects = async () => {
         v.json(),
     );
 
-    const cf = await Promise.all(
-        rcf.map((v) =>
-            mapCurseModToCommon(v),
-        ),
-    );
+    const cf = await Promise.all(rcf.map((v) => mapCurseModToCommon(v)));
 
     const mr = await Promise.all(rmr.map(mapModrinthToCommon));
     const all = cf;

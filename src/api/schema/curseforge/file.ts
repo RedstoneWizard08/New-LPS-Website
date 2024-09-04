@@ -1,4 +1,11 @@
-import type { CurseForgeFileDependency, CurseForgeFileHash, CurseForgeFileModule, CurseForgeFileReleaseType, CurseForgeFileStatus, CurseForgeSortableGameVersion } from "curseforge-api/v1/Types";
+import type {
+    CurseForgeFileDependency,
+    CurseForgeFileHash,
+    CurseForgeFileModule,
+    CurseForgeFileReleaseType,
+    CurseForgeFileStatus,
+    CurseForgeSortableGameVersion,
+} from "curseforge-api/v1/Types";
 
 export class CurseForgeFile {
     public id: number;
@@ -27,7 +34,7 @@ export class CurseForgeFile {
     public earlyAccessEndDate: Date | null;
     public fileFingerprint: number;
     public modules: CurseForgeFileModule[];
-    
+
     constructor(data: any) {
         this.id = data.id;
         this.gameId = data.gameId;

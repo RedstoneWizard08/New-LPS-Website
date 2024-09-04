@@ -1,4 +1,11 @@
-import type { CurseForgeCategory, CurseForgeFileIndex, CurseForgeModAsset, CurseForgeModAuthor, CurseForgeModLinks, CurseForgeModStatus } from "curseforge-api/v1/Types";
+import type {
+    CurseForgeCategory,
+    CurseForgeFileIndex,
+    CurseForgeModAsset,
+    CurseForgeModAuthor,
+    CurseForgeModLinks,
+    CurseForgeModStatus,
+} from "curseforge-api/v1/Types";
 import { CurseForgeFile } from "./file";
 
 export class CurseForgeMod {
@@ -29,7 +36,7 @@ export class CurseForgeMod {
     public isAvailable: boolean;
     public thumbsUpCount: number;
     public rating: number | null;
-    
+
     constructor(data: any) {
         this.id = data.id;
         this.gameId = data.gameId;
