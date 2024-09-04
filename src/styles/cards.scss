@@ -16,6 +16,14 @@
     @include bg-img("../images/when_dungeons_arise.png");
 }
 
-.eab {
-    @include bg-img("../images/eternal_abyss.png");
+.prii {
+    @include bg-img("../images/prii.png");
+}
+
+.stp {
+    @include bg-img("../images/steampunk.png");
+}
+
+.fn {
+    @include bg-img("../images/fear_nightfall.png");
 }

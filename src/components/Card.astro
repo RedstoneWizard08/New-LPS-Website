@@ -4,12 +4,19 @@ interface Props {
     title: string;
     desc: string;
     right?: boolean;
+    link: string;
 }
 
-const { class: className, title, desc, right } = Astro.props;
+const { class: className, title, desc: desc_, right, link } = Astro.props;
+
+const desc = desc_
+    .replace("\n", "<br />")
+    .replace(/\*\*([^\*]+)\*\*/gm, "<b><u>$1</u></b>");
 ---
 
-<div
+<a
+    href={link}
+    target="_blank"
     class:list={[
         "w-full min-h-70% flex flex-col p-l-5% p-t-5% p-r-5% card".split(" "),
         right ? "items-end" : "items-start",
@@ -23,15 +30,27 @@ const { class: className, title, desc, right } = Astro.props;
             "font-mc-mono text-xl".split(" "),
             right ? "text-right" : "text-left",
         ]}
-        set:html={desc
-            .replace("\n", "<br />")
-            .replace(/\*\*([^\*]+)\*\*/gm, "<b><u>$1</u></b>")}
+        set:html={desc}
     />
-</div>
+</a>
 
 <style lang="scss">
     .card {
         border-top: 0.5px solid rgba(255, 255, 255, 0.25);
         border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
+        transition: background-size 1s ease;
+        background-size: 100%;
+
+        &:hover {
+            background-size: 110%;
+        }
+
+        @media screen and (max-width: 600px) {
+            background-size: 200%;
+
+            &:hover {
+                background-size: 230%;
+            }
+        }
     }
 </style>

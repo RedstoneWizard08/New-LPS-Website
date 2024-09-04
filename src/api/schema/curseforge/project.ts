@@ -19,7 +19,7 @@ export interface Category {
     parentCategoryId: number;
 }
 
-export interface Project {
+export interface CurseforgeScrapedProject {
     id: number;
     name: string;
     slug: string;

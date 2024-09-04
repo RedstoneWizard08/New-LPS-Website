@@ -2,9 +2,41 @@
 import { Image } from "astro:assets";
 
 import banner from "../images/banner.png";
+import icon from "../images/favicon.png";
 ---
 
-<div class="w-full bg-dark flex flex-col justify-center items-center p-10">
-    <Image src={banner} alt="Luna Pixel Studios logo" class="w-15% mb-2.5" />
-    <p class="font-mc-mono font-lg">&copy; 2024 Luna Pixel Studios</p>
+<div class="w-full bg-dark flex flex-col justify-center items-center p-10 footer">
+    <Image
+        src={banner}
+        alt="Luna Pixel Studios logo"
+        class="w-15% mb-2.5 logo"
+    />
+    <p class="font-mc-mono font-lg flex flex-row items-center justify-between">
+        <Image
+            src={icon}
+            alt="Luna Pixel Studios logo"
+            class="w-10% rd-lg logo-2"
+        />
+        &copy; 2024 Luna Pixel Studios
+    </p>
 </div>
+
+<style lang="scss">
+    .logo-2 {
+        display: none;
+    }
+
+    @media screen and (max-width: 600px) {
+        .footer {
+            padding: 1rem;
+        }
+
+        .logo {
+            display: none;
+        }
+
+        .logo-2 {
+            display: block;
+        }
+    }
+</style>

@@ -9,7 +9,15 @@ export default defineConfig({
 
         colors: {
             cdark: {
-                DEFAULT: "#13151a",
+                DEFAULT: "#13151A",
+            },
+
+            modrinth: {
+                DEFAULT: "rgb(60, 219, 54)",
+            },
+
+            curseforge: {
+                DEFAULT: "#EB622B",
             },
         },
     },

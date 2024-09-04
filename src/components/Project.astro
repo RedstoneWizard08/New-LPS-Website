@@ -1,23 +1,54 @@
 ---
-import { Image } from "astro:assets";
-import type { Project } from "../api/schema/projects";
+import { Icon } from "astro-icon/components";
 import { formatNumber } from "../api/fmt";
+import type { CommonProject } from "../api/schema/project";
 
 export interface Props {
-    data: Project;
+    data: CommonProject;
 }
 
 const { data } = Astro.props;
 const downloads = formatNumber(data.downloads);
 ---
 
-<a class="flex flex-row bg-dark-2 rd-lg p-2 item" href={`/projects/${data.id}`}>
-    <img src={data.avatarUrl} alt={data.name} class="w-20% rd-lg mr-5" />
+<a
+    class="flex flex-row bg-dark-2 rd-lg p-2 item"
+    href={`/projects/${data.source}/${data.id}`}
+>
+    <img src={data.iconUrl} alt={data.name} class="w-20% rd-lg mr-5" />
 
     <div class="flex flex-col">
-        <p class="text-lg">{data.name}</p>
-        <p class="text-lg color-gray-4">{downloads} Downloads</p>
-        <p class="text-lg color-gray-3">by {data.author.username}</p>
+        <p class="text-lg font-mc">{data.name}</p>
+        <p class="text-lg color-gray-4 font-mc-mono">{downloads} Downloads</p>
+        <p class="text-lg color-gray-3 font-mc-mono">by {data.author}</p>
+        <p
+            class="text-lg font-mc-mono flex flex-row items-center justify-start"
+        >
+            {
+                data.sources.curseforge ? (
+                    <>
+                        <>
+                            <Icon name="curseforge" />
+                            <span class="text-curseforge ml-3 mr-5">
+                                CurseForge
+                            </span>
+                        </>
+                    </>
+                ) : (
+                    ""
+                )
+            }
+            {
+                data.sources.modrinth ? (
+                    <>
+                        <Icon name="modrinth" />
+                        <span class="text-modrinth ml-3">Modrinth</span>
+                    </>
+                ) : (
+                    ""
+                )
+            }
+        </p>
     </div>
 </a>
 

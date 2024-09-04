@@ -1,11 +1,11 @@
 ---
-import type { Project as ProjectData } from "../api/schema/projects";
+import type { CommonProject } from "../api/schema/project";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Project from "../components/Project.astro";
 import Layout from "../layouts/Layout.astro";
 
-const data: ProjectData[] = await fetch(
+const data: CommonProject[] = await fetch(
     new URL("/api/projects", Astro.url),
 ).then((v) => v.json());
 ---
@@ -17,7 +17,7 @@ const data: ProjectData[] = await fetch(
         <div class="w-full mt-2.5rem p-2rem">
             <p class="text-3xl font-mc mb-5">Projects</p>
 
-            <div class="grid grid-cols-3 items">
+            <div class="grid grid-cols-2 items">
                 {
                     data
                         .sort((a, b) => b.downloads - a.downloads)
@@ -33,5 +33,11 @@ const data: ProjectData[] = await fetch(
 <style lang="scss">
     .items {
         grid-gap: 10px;
+    }
+
+    @media screen and (max-width: 600px) {
+        .items {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
     }
 </style>

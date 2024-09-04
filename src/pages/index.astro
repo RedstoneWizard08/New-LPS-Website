@@ -14,59 +14,93 @@ import bisect from "../images/bisect.png";
         <Header />
 
         <div class="hero w-full min-h-100vh">
-            <Image src={banner} alt="Luna Pixel Studios Banner" class="w-40%" />
+            <Image
+                src={banner}
+                alt="Luna Pixel Studios Banner"
+                class="w-40% banner"
+            />
             <p class="text-20pt font-mc">Join the adventure!</p>
         </div>
 
         <Card
-            class="bmc"
-            title="Better Minecraft"
-            desc="Discover Minecraft 2 or what Minecraft should have been?!\nCheck out the **Better Minecraft** series by SHXRKIE."
+            class="prii"
+            title="Prominence II [RPG]"
+            desc="Discover the most immersive and story-rich modpack ever created!\nCheck out the **Prominence II [RPG]** modpack by ElocinDev."
+            link="https://www.curseforge.com/minecraft/modpacks/prominence-2-rpg"
         />
 
         <Card
-            class="abyss"
-            title="The Abyss: The Other Side"
-            desc="Discover the hardest dimension mod!\nCheck out **The Abyss: Chapter 2** by Y3Z0N."
+            class="stp"
+            title="SteamPunk"
+            desc="Explore this incredible Create-centric steampunk-era inspired modpack!\nCheck out the **SteamPunk [LPS]** modpack by SHXRKIE."
+            link="https://www.curseforge.com/minecraft/modpacks/steam-punk"
+            right
+        />
+
+        <Card
+            class="fn"
+            title="Fear Nightfall"
+            desc="Experience the scariest modpack ever conceived!\nCheck out **Fear Nightfall** by SHXRKIE."
+            link="https://www.curseforge.com/minecraft/modpacks/fear-nightfall"
+        />
+
+        <Card
+            class="bmc"
+            title="Better Minecraft"
+            desc="Discover a beautiful Minecraft upgrade, rich with content to explore!\nCheck out the **Better Minecraft** series by SHXRKIE."
+            link="https://www.curseforge.com/minecraft/modpacks/better-mc-neoforge-bmc5"
             right
         />
 
         <Card
             class="mmc"
             title="Medieval Minecraft"
-            desc="Discover the greatest medieval fantasy RPG adventure & exploration modpack!\nCheck out the **Medieval Minecraft** series by SHXRKIE."
+            desc="Discover the greatest medieval fantasy RPG modpack!\nCheck out the **Medieval Minecraft** series by SHXRKIE."
+            link="https://www.curseforge.com/minecraft/modpacks/medieval-mc-mmc4"
+        />
+
+        <Card
+            class="abyss"
+            title="The Abyss II: The Other Side"
+            desc="Discover the hardest dimension mod!\nCheck out **The Abyss: Chapter 2** by Y3Z0N."
+            link="https://www.curseforge.com/minecraft/mc-mods/the-abyss-chapter-ii"
+            right
         />
 
         <Card
             class="wda"
             title="When Dungeons Arise"
-            desc="Discover huge and small dungeons like you've never seen them before!\nCheck out **When Dungeons Arise** by Aureljz."
-            right
+            desc="Discover many shapes and sizes of dungeons like you've never seen them before!\nCheck out **When Dungeons Arise** by Aureljz."
+            link="https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise"
         />
 
-        <Card
-            class="eab"
-            title="Coming Soon: Eternal Abyss"
-            desc="Discover the best and most detailed MMO RPG modpack out there!\nCheck out **Eternal Abyss** by Y3Z0N."
-        />
-
-        <div class="w-full flex flex-col items-center justify-center p-30">
-            <p class="text-3xl b-b-1 b-b-sky mb-10 font-mc">
+        <div
+            class="w-full flex flex-col items-center justify-center p-30 about"
+        >
+            <p class="text-3xl b-b-1 b-b-sky mb-10 font-mc title">
                 Who are Luna Pixel Studios?
             </p>
 
-            <p class="text-xl text-center mb-10 font-mc-mono">
-                Join our vibrant community of over 90 million downloads on
-                CurseForge! Our dedicated team is passionate about creating
-                immersive Minecraft experiences with our mods and modpacks. But
-                we're not just about the gameplay - we also host monthly events
-                with fantastic rewards and giveaways to show our appreciation
-                for our amazing community. And with a bustling Discord channel,
-                there's always someone to chat and play with. Don't miss out on
-                the fun - join us today!
+            <p class="text-xl text-center mb-7 font-mc-mono text">
+                Luna Pixel Studios is a team of modders and modpack makers with
+                over 700 million downloads who are passionate about creating
+                immersive experiences in Minecraft. But we're not just about
+                gameplay - we also host monthly events with fantastic rewards
+                and giveaways to show our appreciation for our incredible
+                community. And with a bustling Discord server, there's always
+                someone to chat or play with. Don't miss out on the fun - join
+                us today!
             </p>
 
-            <p class="text-3xl b-b-1 b-b-sky mb-10 font-mc">Need a server?</p>
+            <a
+                href="https://lunapixel.studio/discord"
+                class="text-xl bg-orange b-1 b-orange p-2 rd-lg p-l-4 p-r-4 text-black font-mc text-center flex flex-row justify-center items-center hover:text-white hover:bg-transparent transition-all transition-duration-250 mb-10"
+                >Join the Discord</a
+            >
+
+            <p class="text-3xl b-b-1 b-b-sky mb-10 font-mc title">
+                Need a server?
+            </p>
 
             <Image
                 src={bisect}
@@ -74,19 +108,13 @@ import bisect from "../images/bisect.png";
                 class="w-100% bg-blue rd-lg mb-5"
             />
 
-            <p class="text-lg text-center font-mc-mono">
-                Bisect Hosting has Better Minecraft Modpacks, Medieval Minecraft
-                Modpacks, and the Stay True Modpack ready for installation!
+            <p class="text-lg text-center font-mc-mono text">
+                Bisect Hosting has all of our modpacks ready for installation!
             </p>
 
-            <p class="text-lg text-center font-mc-mono">
-                Use Code <code class="b-amber b-1 rd-md p-1">LunaPixel</code> for
-                25% off your first month and this helps support the Development.
-            </p>
-
-            <p class="text-lg text-center mb-5 font-mc-mono">
-                Bisect Hosting has all of the LunaPixel's Modpacks ready for
-                one-click installation, and they provide 24/7 support!
+            <p class="text-lg text-center font-mc-mono mb-5 text">
+                Use code <code class="b-amber b-1 rd-md p-1">LunaPixel</code> for
+                25% off your first month and help support us!
             </p>
 
             <a
@@ -110,5 +138,23 @@ import bisect from "../images/bisect.png";
         justify-content: center;
 
         @include bg-img("../images/hero.png");
+    }
+
+    @media screen and (max-width: 600px) {
+        .about {
+            padding: 2rem;
+
+            .title {
+                font-size: 20pt;
+            }
+
+            .text {
+                font-size: 14pt;
+            }
+        }
+
+        .banner {
+            width: 80%;
+        }
     }
 </style>

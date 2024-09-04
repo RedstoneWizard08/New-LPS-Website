@@ -11,7 +11,9 @@ export default defineConfig({
     output: "server",
 
     integrations: [
-        icon(),
+        icon({
+            iconDir: "src/icons",
+        }),
         robotsTxt(),
         sitemap(),
         mdx(),
