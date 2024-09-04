@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 
 import banner from "../images/banner.png";
 import icon from "../images/favicon.png";
+import { GIT_BRANCH, GIT_HASH, GIT_REPO } from "astro:env/client";
 ---
 
 <div
@@ -21,6 +22,14 @@ import icon from "../images/favicon.png";
         />
         &copy; 2024 Luna Pixel Studios
     </p>
+    <a
+        class="font-mc-mono underline text-sm hash"
+        href={`${GIT_REPO}/commit/${GIT_HASH}`}
+        target="_blank"
+        >{GIT_REPO.split("/")[GIT_REPO.split("/").length - 1]}/{GIT_BRANCH}@{
+            GIT_HASH
+        }</a
+    >
 </div>
 
 <style lang="scss">
@@ -39,6 +48,11 @@ import icon from "../images/favicon.png";
 
         .logo-2 {
             display: block;
+        }
+
+        .hash {
+            text-align: right;
+            width: 100%;
         }
     }
 </style>

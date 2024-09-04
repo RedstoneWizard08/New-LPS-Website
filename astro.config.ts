@@ -6,6 +6,11 @@ import mdx from "@astrojs/mdx";
 import unocss from "unocss/astro";
 import node from "@astrojs/node";
 import cloudflare from "@astrojs/cloudflare";
+import cp from "child_process";
+
+const hash = cp.execSync("git rev-parse --short HEAD").toString().trim();
+const branch = cp.execSync("git branch --show-current").toString().trim();
+const repo = cp.execSync("git remote get-url origin").toString().trim();
 
 export default defineConfig({
     output: "server",
@@ -40,6 +45,9 @@ export default defineConfig({
     },
 
     experimental: {
+        contentIntellisense: true,
+        contentLayer: true,
+
         env: {
             schema: {
                 CURSEFORGE_KEY: envField.string({
@@ -51,6 +59,21 @@ export default defineConfig({
                     context: "server",
                     access: "public",
                     default: 0,
+                }),
+                GIT_HASH: envField.string({
+                    context: "client",
+                    access: "public",
+                    default: hash,
+                }),
+                GIT_BRANCH: envField.string({
+                    context: "client",
+                    access: "public",
+                    default: branch,
+                }),
+                GIT_REPO: envField.string({
+                    context: "client",
+                    access: "public",
+                    default: repo,
                 }),
             },
         },
