@@ -29,4 +29,5 @@ WORKDIR /usr/src/website/dist/server
 
 COPY docker/run.sh /usr/src/website/dist/server
 
+EXPOSE 4000
 CMD ["/usr/bin/bash", "/usr/src/website/dist/server/run.sh"]
