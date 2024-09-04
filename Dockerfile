@@ -1,7 +1,23 @@
 FROM node:22-bullseye
 
 RUN apt-get update && \
-    apt-get -y install wget gnupg curl bash
+    apt-get -y install \
+        wget \
+        gnupg \
+        curl \
+        bash \
+        libgl1 \
+        libglfw3 \
+        libglx-mesa0 \
+        libglx0 \
+        libglib2.0-0 \
+        libgles2 \
+        libgles2-mesa \
+        libpci3 \
+        libegl1 \
+        libegl1-mesa \
+        libegl-mesa0 \
+        xvfb
 
 RUN install -d -m 0755 /etc/apt/keyrings && \
     wget -q https://packages.mozilla.org/apt/repo-signing-key.gpg -O- | \
@@ -20,6 +36,7 @@ RUN mkdir -p /usr/src/website
 COPY . /usr/src/website
 WORKDIR /usr/src/website
 
+ENV HOST 0
 ENV REDSTONE_IS_DUMB=1
 ENV PUPPETEER_PRODUCT=firefox
 
@@ -31,4 +48,4 @@ WORKDIR /usr/src/website/dist/server
 COPY docker/run.sh /usr/src/website/dist/server
 
 EXPOSE 4000
-CMD ["/usr/bin/bash", "/usr/src/website/dist/server/run.sh"]
+ENTRYPOINT ["/usr/bin/bash", "/usr/src/website/dist/server/run.sh"]
