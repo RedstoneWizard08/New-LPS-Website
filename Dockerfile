@@ -21,6 +21,7 @@ COPY . /usr/src/website
 WORKDIR /usr/src/website
 
 ENV REDSTONE_IS_DUMB=1
+ENV PUPPETEER_PRODUCT=firefox
 
 RUN pnpm install
 RUN pnpm run build
