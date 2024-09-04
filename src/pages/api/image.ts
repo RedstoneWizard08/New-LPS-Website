@@ -7,6 +7,7 @@ const IMAGE_TYPES = [
     "image/gif",
     "image/svg+xml",
     "image/svg+xml;charset=utf-8",
+    "image/webp",
 ];
 
 export const GET: APIRoute = async ({ url }) => {
