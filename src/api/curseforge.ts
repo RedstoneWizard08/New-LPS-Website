@@ -1,36 +1,27 @@
 import { CURSEFORGE_KEY } from "astro:env/server";
-import { CurseForgeClient } from "curseforge-api";
-import type { CurseforgeScrapedProject } from "./schema/curseforge/project";
-import { getPageText } from "./puppeteer";
-import { parse } from "node-html-parser";
-import { CURSEFORGE_PAGE } from "../config";
+import { CurseForgeClient, CurseForgeGameEnum } from "curseforge-api";
+import { CURSEFORGE_USER_ID, PAGINATION_SIZE } from "../config";
 
 export const CURSEFORGE = new CurseForgeClient(CURSEFORGE_KEY);
 
-let cache: CurseforgeScrapedProject[] | undefined = undefined;
-let cachedTime = 0;
+export const getAllCurseProjects = async () => {
+    const projs = [];
 
-const hasCacheExpired = () =>
-    cachedTime + 1 /*h*/ * 60 /*m*/ * 60 /*s*/ * 1000 /*ms*/ <= Date.now();
+    let page = 0;
+    let max = 1;
 
-const getCachedValue = async () => {
-    // CurseForge please make a proper API for this (or document one)
+    while (page < max) {
+        const data = await CURSEFORGE.searchMods(CurseForgeGameEnum.Minecraft, {
+            authorId: CURSEFORGE_USER_ID,
+            pageSize: PAGINATION_SIZE,
+            index: page * PAGINATION_SIZE,
+        });
 
-    const data = await getPageText(CURSEFORGE_PAGE)!;
-    const parsed = parse(data);
-    const script = parsed.getElementById("__NEXT_DATA__");
-    const json = JSON.parse(script!.innerHTML);
-    const projects = json.props.pageProps.authorProjects
-        .data as CurseforgeScrapedProject[];
+        projs.push(...data.data);
 
-    cache = projects;
-    cachedTime = Date.now();
+        max = Math.ceil(data.pagination.totalCount / PAGINATION_SIZE);
+        page++;
+    }
 
-    return projects;
-};
-
-export const getCurseForgeProjects = async () => {
-    if (!cache || hasCacheExpired()) return await getCachedValue();
-
-    return cache;
+    return projs;
 };

@@ -1,0 +1,22 @@
+---
+import MenuOpener from "./MenuOpener.astro";
+---
+
+<MenuOpener class="ml-4 mt-4" />
+
+<div class="menu bg-dark h-full fixed w-20% z-3 active flex">
+    
+</div>
+
+<style lang="scss" is:global>
+    .menu {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+
+        &.active {
+            opacity: 1;
+            pointer-events: unset;
+        }
+    }
+</style>

@@ -1,10 +1,10 @@
 import type { ModrinthProject } from "./schema/modrinth/project";
 import {
-    mapCurseToCommon,
+    mapCurseModToCommon,
     mapModrinthToCommon,
     type CommonProject,
 } from "./schema/project";
-import { CURSEFORGE, getCurseForgeProjects } from "./curseforge";
+import { CURSEFORGE, getAllCurseProjects } from "./curseforge";
 import { MODRINTH_URL } from "../config";
 
 let cache: CommonProject[] | undefined = undefined;
@@ -16,14 +16,14 @@ const hasCacheExpired = () =>
 export const getAllProjects = async () => {
     if (cache && !hasCacheExpired()) return cache;
 
-    const rcf = await getCurseForgeProjects();
+    const rcf = await getAllCurseProjects();
 
     const rmr: ModrinthProject[] = await fetch(MODRINTH_URL).then((v) =>
         v.json(),
     );
 
     const cf = await Promise.all(
-        rcf.map((v) => mapCurseToCommon(CURSEFORGE, v)),
+        rcf.map((v) => mapCurseModToCommon(CURSEFORGE, v)),
     );
 
     const mr = await Promise.all(rmr.map(mapModrinthToCommon));

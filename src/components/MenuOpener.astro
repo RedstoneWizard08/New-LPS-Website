@@ -1,0 +1,63 @@
+---
+interface Props {
+    class: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div
+    data-hamburger
+    class:list={[
+        ..."flex flex-col justify-between items-center w-26px h-22px hover:cursor-pointer z-4 fixed".split(
+            " ",
+        ),
+        ...className.split(" "),
+    ]}
+>
+    <span class="bar b0" data-hamburger-bar></span>
+    <span class="bar b1" data-hamburger-bar></span>
+    <span class="bar b2" data-hamburger-bar></span>
+</div>
+
+<script>
+    const borgor = document.querySelector(`div[data-hamburger]`)!;
+    const bars = borgor.querySelectorAll("span[data-hamburger-bar]");
+    const menu = document.querySelector(".menu");
+
+    borgor?.addEventListener("click", () => {
+        for (const bar of bars) {
+            bar.classList.toggle("active");
+        }
+
+        menu?.classList.toggle("active");
+    });
+</script>
+
+<style lang="scss">
+    .bar {
+        height: 3px;
+        width: 100%;
+        background-color: white;
+        transition: all 0.25s ease;
+
+        &.active {
+            &.b0 {
+                transform: rotate(45deg);
+                transform-origin: top left;
+                width: 28px;
+            }
+
+            &.b1 {
+                transform-origin: center;
+                width: 0;
+            }
+
+            &.b2 {
+                transform: rotate(-45deg);
+                transform-origin: bottom left;
+                width: 28px;
+            }
+        }
+    }
+</style>
