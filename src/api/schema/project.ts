@@ -50,7 +50,7 @@ export const mapCurseModToCommon = async (
 export const mapModrinthToCommon = async (
     proj: ModrinthProject,
 ): Promise<CommonProject> => {
-    let author = "Luna Pixel Studios";
+    let author = "LunaPixelStudios";
 
     if (CLOUDFLARE != 1) {
         const url = `https://api.modrinth.com/v2/project/${proj.id}/members`;
