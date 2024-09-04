@@ -3,7 +3,7 @@ services:
     new-lps-website:
         restart: always
         ports:
-            - 4000:4000
+            - 5120:4000
         env_file:
             - .env
         image: ghcr.io/redstonewizard08/new-lps-website
