@@ -11,14 +11,9 @@ import icon from "../images/favicon.png";
 >
     <div class="flex flex-row justify-start items-center">
         <Image
-            src={banner}
-            alt="Luna Pixel Studios Logo"
-            class="w-10% mr-5 logo"
-        />
-        <Image
             src={icon}
             alt="Luna Pixel Studios Logo"
-            class="w-10% mr-5 rd-lg logo-2"
+            class="w-10% mr-5 rd-lg logo w-5%"
         />
 
         <a href="/" class="font-mc-mono text-lg mr-5 underline">Home</a>
@@ -47,17 +42,9 @@ import icon from "../images/favicon.png";
 </div>
 
 <style lang="scss">
-    .logo-2 {
-        display: none;
-    }
-
     @media screen and (max-width: 600px) {
         .logo {
-            display: none;
-        }
-
-        .logo-2 {
-            display: block;
+            width: 10%;
         }
     }
 </style>
