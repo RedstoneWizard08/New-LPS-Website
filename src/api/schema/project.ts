@@ -2,6 +2,7 @@ import type { ModrinthProject } from "./modrinth/project";
 import type { ModrinthMember } from "./modrinth/members";
 import { getModDescription } from "../curseforge";
 import type { CurseForgeMod } from "./curseforge/mod";
+import { CLOUDFLARE } from "astro:env/server";
 
 export type Source = "curseforge" | "modrinth";
 
@@ -49,11 +50,21 @@ export const mapCurseModToCommon = async (
 export const mapModrinthToCommon = async (
     proj: ModrinthProject,
 ): Promise<CommonProject> => {
-    const url = `https://api.modrinth.com/v2/project/${proj.id}/members`;
-    const members: ModrinthMember[] = await fetch(url).then((v) => v.json());
-    const member = members.find((v) => v.role == "Owner") || members[0];
+    let author = "Luna Pixel Studios";
 
-    await new Promise((res, _rej) => setTimeout(res, 1000));
+    if (CLOUDFLARE != 1) {
+        const url = `https://api.modrinth.com/v2/project/${proj.id}/members`;
+
+        const members: ModrinthMember[] = await fetch(url).then((v) =>
+            v.json(),
+        );
+
+        const member = members.find((v) => v.role == "Owner") || members[0];
+
+        await new Promise((res, _rej) => setTimeout(res, 1000));
+
+        author = member.user.username;
+    }
 
     return {
         id: proj.id,
@@ -62,7 +73,7 @@ export const mapModrinthToCommon = async (
         name: proj.title,
         downloads: proj.downloads,
         follows: proj.followers,
-        author: member.user.username,
+        author,
         downloadLink: `https://modrinth.com/${proj.project_type}/${proj.slug}/version/${proj.versions[0]}`,
         iconUrl: proj.icon_url,
         description: proj.body,

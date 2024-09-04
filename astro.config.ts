@@ -75,6 +75,11 @@ export default defineConfig({
                     access: "public",
                     default: repo,
                 }),
+                CLOUDFLARE: envField.number({
+                    context: "server",
+                    access: "public",
+                    default: 0,
+                }),
             },
         },
     },
