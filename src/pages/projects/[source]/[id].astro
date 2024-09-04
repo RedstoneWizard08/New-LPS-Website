@@ -48,7 +48,8 @@ const downloads = formatNumber(data.downloads);
                             class="text-xl font-mc-mono flex flex-row items-center justify-start desc"
                         >
                             by {data.author} | {downloads}
-                            Downloads<span class="mobile-hide flex flex-row items-center justify-start"
+                            Downloads<span
+                                class="mobile-hide flex flex-row items-center justify-start"
                                 >&nbsp;| {
                                     data.sources.curseforge ? (
                                         <a
@@ -81,7 +82,9 @@ const downloads = formatNumber(data.downloads);
                                 }</span
                             >
                         </p>
-                        <p class="font-mc-mono text-xl flex flex-row items-center justify-start mobile-show">
+                        <p
+                            class="font-mc-mono text-xl flex flex-row items-center justify-start mobile-show"
+                        >
                             {
                                 data.sources.curseforge ? (
                                     <a
@@ -177,7 +180,7 @@ const downloads = formatNumber(data.downloads);
 
             .header {
                 width: 100%;
-                
+
                 .title {
                     font-size: 14pt;
                 }

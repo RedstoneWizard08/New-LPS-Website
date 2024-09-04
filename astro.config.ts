@@ -4,9 +4,9 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import unocss from "unocss/astro";
+import node from "@astrojs/node";
 import cloudflare from "@astrojs/cloudflare";
 
-// https://astro.build/config
 export default defineConfig({
     output: "server",
 
@@ -45,6 +45,7 @@ export default defineConfig({
                 CURSEFORGE_KEY: envField.string({
                     context: "server",
                     access: "secret",
+                    default: process.env.CURSEFORGE_KEY,
                 }),
                 REDSTONE_IS_DUMB: envField.number({
                     context: "server",
@@ -55,7 +56,9 @@ export default defineConfig({
         },
     },
 
-    //   site: import.meta.env.CI ? "https://redstonewizard08.github.io" : undefined,
-    //   base: import.meta.env.CI ? "New-LPS-Website" : undefined,
-    adapter: cloudflare(),
+    adapter: process.env.CLOUDFLARE
+        ? cloudflare()
+        : node({
+              mode: "standalone",
+          }),
 });
