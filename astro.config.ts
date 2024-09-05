@@ -85,7 +85,9 @@ export default defineConfig({
     },
 
     adapter: process.env.CLOUDFLARE
-        ? cloudflare()
+        ? cloudflare({
+              imageService: "cloudflare",
+          })
         : node({
               mode: "standalone",
           }),
