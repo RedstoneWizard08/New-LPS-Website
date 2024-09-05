@@ -7,22 +7,34 @@ import icon from "../images/favicon.png";
 ---
 
 <div
-    class="w-full bg-dark pos-fixed p-2 flex flex-row justify-between items-center"
+    class="w-full bg-dark pos-fixed p-2 flex flex-row justify-between items-center header"
 >
     <div class="flex flex-row justify-start items-center">
         <Image
             src={icon}
             alt="Luna Pixel Studios Logo"
-            class="w-10% mr-5 rd-lg logo w-5% ml-12.5"
+            class="mr-5 rd-lg logo w-5% cursor-pointer"
+            id="home-img"
         />
 
-        <a href="/" class="font-mc-mono text-lg mr-5 underline">Home</a>
-        <a href="/projects" class="font-mc-mono text-lg mr-5 underline"
-            >Projects</a
+        <script>
+            const img = document.querySelector("#home-img");
+
+            img?.addEventListener("click", () => {
+                window.location.replace("/");
+            });
+        </script>
+
+        <a href="/" class="font-mc-mono text-lg mr-5 underline hide-mobile"
+            >Home</a
+        >
+        <a
+            href="/projects"
+            class="font-mc-mono text-lg mr-5 underline hide-mobile">Projects</a
         >
         <a
             href="https://www.bisecthosting.com/LunaPixel"
-            class="font-mc-mono text-lg underline">Hosting</a
+            class="font-mc-mono text-lg underline hide-mobile">Hosting</a
         >
     </div>
 
@@ -43,8 +55,24 @@ import icon from "../images/favicon.png";
 
 <style lang="scss">
     @media screen and (max-width: 600px) {
+        .header {
+            height: 3.5rem;
+        }
+
         .logo {
             width: 10%;
+            margin-left: 3.125rem;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        .header {
+            height: 3.5rem;
+        }
+
+        .logo {
+            width: 15%;
+            margin-left: 3.125rem;
         }
     }
 </style>

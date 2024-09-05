@@ -2,11 +2,20 @@
 import MenuOpener from "./MenuOpener.astro";
 ---
 
-<MenuOpener class="ml-4 mt-4" />
+<MenuOpener class="ml-4 mt-4 mobile-only" />
 
-<div class="menu bg-dark h-full fixed w-20% z-3 flex"></div>
+<div
+    class="menu bg-dark color-white h-full fixed w-50% z-3 flex flex-col items-start justify-start p-4 pt-16 mobile-only"
+>
+    <a href="/" class="font-mc-mono text-lg underline">Home</a>
+    <a href="/projects" class="font-mc-mono text-lg underline">Projects</a>
+    <a
+        href="https://www.bisecthosting.com/LunaPixel"
+        class="font-mc-mono text-lg underline">Hosting</a
+    >
+</div>
 
-<style lang="scss" is:global>
+<style lang="scss">
     .menu {
         opacity: 0;
         pointer-events: none;

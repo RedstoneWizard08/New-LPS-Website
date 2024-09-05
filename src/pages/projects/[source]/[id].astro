@@ -21,7 +21,7 @@ const downloads = formatNumber(data.downloads);
         <Header />
 
         <div
-            class="flex flex-row items-center justify-between pb-4 pt-4 position-fixed header bg-cdark"
+            class="flex flex-row items-center justify-between pb-4 pt-4 position-fixed header bg-cdark b-b-1px"
         >
             <div class="flex flex-row items-center justify-start">
                 <img src={data.iconUrl} alt={data.name} class="w-5rem rd-lg" />
@@ -39,11 +39,11 @@ const downloads = formatNumber(data.downloads);
                     >
 
                     <p
-                        class="text-xl font-mc-mono flex flex-row items-center justify-start desc"
+                        class="text-xl font-mc-mono flex flex-row items-center justify-start desc hide-mobile"
                     >
                         by {data.author} | {downloads}
                         Downloads<span
-                            class="mobile-hide flex flex-row items-center justify-start"
+                            class="flex flex-row items-center justify-start"
                             >&nbsp;| {
                                 data.sources.curseforge ? (
                                     <a
@@ -77,7 +77,16 @@ const downloads = formatNumber(data.downloads);
                         >
                     </p>
                     <p
-                        class="font-mc-mono text-xl flex flex-row items-center justify-start mobile-show"
+                        class="text-xl font-mc-mono flex flex-col items-start justify-start desc mobile-only"
+                    >
+                        by {data.author}
+                        <span
+                            >{downloads}
+                            Downloads</span
+                        >
+                    </p>
+                    <p
+                        class="font-mc-mono text-xl flex flex-col items-start justify-start mobile-only"
                     >
                         {
                             data.sources.curseforge ? (
@@ -113,7 +122,7 @@ const downloads = formatNumber(data.downloads);
                 </div>
             </div>
 
-            <div class="flex flex-row items-center justify-end mobile-hide">
+            <div class="flex flex-row items-center justify-end hide-mobile">
                 <a
                     href={data.downloadLink}
                     class="flex flex-row items-center justify-end bg-green-6 p-2 pl-3 pr-3 rd-lg font-mc-mono hover:bg-green-8 transition-all transition-duration-250"
@@ -150,6 +159,8 @@ const downloads = formatNumber(data.downloads);
                 }
 
                 for (const img of imgs) {
+                    if (img.src.startsWith("https://i.imgur.com/")) continue;
+
                     img.src = `/api/image?url=${encodeURIComponent(img.src)}`;
                 }
             </script>
@@ -168,10 +179,7 @@ const downloads = formatNumber(data.downloads);
         width: calc(100% - 2rem);
         margin-top: 3rem;
         padding: 1rem;
-    }
-
-    .mobile-show {
-        display: none;
+        border-color: rgba(255, 255, 255, 0.5);
     }
 
     @media screen and (max-width: 1100px) {
@@ -194,14 +202,6 @@ const downloads = formatNumber(data.downloads);
             .out {
                 display: none;
             }
-        }
-
-        .mobile-hide {
-            display: none;
-        }
-
-        .mobile-show {
-            display: flex;
         }
     }
 </style>
