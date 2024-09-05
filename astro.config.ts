@@ -6,6 +6,7 @@ import mdx from "@astrojs/mdx";
 import unocss from "unocss/astro";
 import node from "@astrojs/node";
 import cloudflare from "@astrojs/cloudflare";
+import vercel from "@astrojs/vercel/serverless";
 import cp from "child_process";
 
 const hash = cp.execSync("git rev-parse --short HEAD").toString().trim();
@@ -88,7 +89,9 @@ export default defineConfig({
         ? cloudflare({
               imageService: "compile",
           })
-        : node({
-              mode: "standalone",
-          }),
+        : process.env.VERCEL
+          ? vercel()
+          : node({
+                mode: "standalone",
+            }),
 });

@@ -91,10 +91,6 @@ export const getAllCurseProjects = async (): Promise<CurseForgeMod[]> => {
         for (const cl of classes) {
             for (const item of await getModsForUserWithClass(user, cl)) {
                 if (!items.find((v) => v.id == item.id)) {
-                    console.log(
-                        `${item.name}: ${item.authors.map((v) => v.name).join(", ")}`,
-                    );
-
                     items.push(item);
                 }
             }
