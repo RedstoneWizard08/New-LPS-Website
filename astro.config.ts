@@ -11,7 +11,10 @@ import cp from "child_process";
 
 const hash = cp.execSync("git rev-parse --short HEAD").toString().trim();
 const branch = cp.execSync("git branch --show-current").toString().trim();
-const repo = cp.execSync("git remote get-url origin").toString().trim();
+
+const repo = process.env.VERCEL
+    ? "https://github.com/RedstoneWizard08/New-LPS-Website"
+    : cp.execSync("git remote get-url origin").toString().trim();
 
 export default defineConfig({
     output: "server",
