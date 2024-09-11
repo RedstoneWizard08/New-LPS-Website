@@ -21,11 +21,18 @@ const repo = process.env.VERCEL
 export default defineConfig({
     output: "server",
 
-    integrations: [icon({
-        iconDir: "src/icons",
-    }), robotsTxt(), sitemap(), mdx(), unocss({
-        injectReset: true,
-    }), svelte()],
+    integrations: [
+        icon({
+            iconDir: "src/icons",
+        }),
+        robotsTxt(),
+        sitemap(),
+        mdx(),
+        unocss({
+            injectReset: true,
+        }),
+        svelte(),
+    ],
 
     server: {
         port: 4000,
