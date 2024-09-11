@@ -16,7 +16,7 @@ const data: CommonProject = await fetch(
 const downloads = formatNumber(data.downloads);
 ---
 
-<Layout title="Luna Pixel Studios | Home">
+<Layout title={`${data?.name || "Loading..."} - Luna Pixel Studios`}>
     <main class="w-full h-full m-0 p-0 b-0">
         <Header />
 
