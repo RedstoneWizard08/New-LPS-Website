@@ -39,7 +39,7 @@ export const mapCurseModToCommon = async (
         downloads: curse.downloadCount,
         follows: curse.thumbsUpCount,
         author: curse.authors[0].name,
-        downloadLink: `${curse.links.websiteUrl}/files/${curse.mainFileId}/download`,
+        downloadLink: `${curse.links.websiteUrl}/download/${curse.mainFileId}`,
         iconUrl: curse.logo.url,
         description: await getModDescription(curse.id),
         summary: curse.summary,
