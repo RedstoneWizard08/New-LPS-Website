@@ -21,7 +21,7 @@ const downloads = formatNumber(data.downloads);
         <Header />
 
         <div
-            class="flex flex-row items-center justify-between pb-4 pt-4 position-fixed header bg-cdark b-b-1px"
+            class="flex flex-row items-center justify-between pb-4 pt-4 position-fixed header bg-cdark b-b-1px b-white b-solid"
         >
             <div class="flex flex-row items-center justify-start">
                 <img src={data.iconUrl} alt={data.name} class="w-5rem rd-lg" />
@@ -176,7 +176,7 @@ const downloads = formatNumber(data.downloads);
     }
 
     .header {
-        width: calc(100% - 2rem);
+        width: 100%;
         margin-top: 3rem;
         padding: 1rem;
         border-color: rgba(255, 255, 255, 0.5);

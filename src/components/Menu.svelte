@@ -1,8 +1,8 @@
----
-import MenuOpener from "./MenuOpener.astro";
----
+<script lang="ts">
+    import MenuOpener from "./MenuOpener.svelte";
+</script>
 
-<MenuOpener class="ml-4 mt-4 mobile-only" />
+<MenuOpener className="ml-4 mt-4 mobile-only" />
 
 <div
     class="menu bg-dark color-white h-full fixed w-50% z-3 flex flex-col items-start justify-start p-4 pt-16 mobile-only"
@@ -14,16 +14,3 @@ import MenuOpener from "./MenuOpener.astro";
         class="font-mc-mono text-lg underline">Hosting</a
     >
 </div>
-
-<style lang="scss">
-    .menu {
-        opacity: 0;
-        pointer-events: none;
-        transition: opacity 0.25s ease;
-
-        &.active {
-            opacity: 1;
-            pointer-events: unset;
-        }
-    }
-</style>

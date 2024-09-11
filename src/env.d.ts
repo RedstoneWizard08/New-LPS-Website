@@ -5,3 +5,9 @@ declare module "humanoid-js" {
         get(url: string): Promise<Response>;
     }
 }
+
+declare module "@iconify/svelte" {
+    import Icon from "@iconify/svelte/dist/Icon.svelte";
+
+    export default Icon;
+}

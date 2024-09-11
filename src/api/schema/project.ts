@@ -3,6 +3,8 @@ import type { ModrinthMember } from "./modrinth/members";
 import { getModDescription } from "../curseforge";
 import type { CurseForgeMod } from "./curseforge/mod";
 import { CLOUDFLARE } from "astro:env/server";
+import type { Category } from "./category";
+import { mapCurseCategoryToCommon } from "./curseforge/category";
 
 export type Source = "curseforge" | "modrinth";
 
@@ -19,6 +21,7 @@ export interface CommonProject {
     description: string;
     summary: string;
     source: Source;
+    type: Category;
     sources: {
         curseforge?: string;
         modrinth?: string;
@@ -41,6 +44,7 @@ export const mapCurseModToCommon = async (
         description: await getModDescription(curse.id),
         summary: curse.summary,
         source: "curseforge",
+        type: mapCurseCategoryToCommon(curse.classId!),
         sources: {
             curseforge: curse.links.websiteUrl,
         },
@@ -79,6 +83,7 @@ export const mapModrinthToCommon = async (
         description: proj.body,
         summary: proj.description,
         source: "modrinth",
+        type: proj.project_type,
         sources: {
             modrinth: `https://modrinth.com/${proj.project_type}/${proj.slug}`,
         },

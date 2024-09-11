@@ -9,6 +9,8 @@ import cloudflare from "@astrojs/cloudflare";
 import vercel from "@astrojs/vercel/serverless";
 import cp from "child_process";
 
+import svelte from "@astrojs/svelte";
+
 const hash = cp.execSync("git rev-parse --short HEAD").toString().trim();
 const branch = cp.execSync("git branch --show-current").toString().trim();
 
@@ -19,17 +21,11 @@ const repo = process.env.VERCEL
 export default defineConfig({
     output: "server",
 
-    integrations: [
-        icon({
-            iconDir: "src/icons",
-        }),
-        robotsTxt(),
-        sitemap(),
-        mdx(),
-        unocss({
-            injectReset: true,
-        }),
-    ],
+    integrations: [icon({
+        iconDir: "src/icons",
+    }), robotsTxt(), sitemap(), mdx(), unocss({
+        injectReset: true,
+    }), svelte()],
 
     server: {
         port: 4000,

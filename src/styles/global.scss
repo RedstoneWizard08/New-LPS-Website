@@ -11,3 +11,14 @@
         display: none;
     }
 }
+
+.menu {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+
+    &.active {
+        opacity: 1;
+        pointer-events: unset;
+    }
+}

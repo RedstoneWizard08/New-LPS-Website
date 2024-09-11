@@ -1,3 +1,5 @@
+import type { Category } from "../category";
+
 export type Requirement = "optional" | "required" | "unsupported";
 
 export interface License {
@@ -27,7 +29,7 @@ export interface ModrinthProject {
     game_versions: string[];
     id: string;
     slug: string;
-    project_type: "mod" | "modpack" | "shader";
+    project_type: Category;
     team: string;
     organization?: string;
     title: string;
