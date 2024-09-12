@@ -1,15 +1,13 @@
----
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
-
-import icon from "../images/favicon.png";
----
+<script lang="ts">
+    import Icon from "@iconify/svelte";
+    import icon from "../images/favicon.png?url";
+</script>
 
 <div
     class="w-full bg-dark pos-fixed p-2 flex flex-row justify-between items-center header z-10"
 >
     <div class="flex flex-row justify-start items-center">
-        <Image
+        <img
             src={icon}
             alt="Luna Pixel Studios Logo"
             class="mr-5 rd-lg logo w-5% cursor-pointer"
@@ -40,15 +38,15 @@ import icon from "../images/favicon.png";
 
     <div class="flex flex-row justify-start items-center">
         <a href="https://twitter.com/lunapixelstudio" class="mr-5"
-            ><Icon name="fa6-brands:twitter" /></a
+            ><Icon icon="fa6-brands:twitter" /></a
         >
 
         <a href="https://lunapixel.studio/discord" class="mr-5"
-            ><Icon name="fa6-brands:discord" /></a
+            ><Icon icon="fa6-brands:discord" /></a
         >
 
         <a href="https://www.patreon.com/LunaPixelStudios"
-            ><Icon name="fa6-brands:patreon" /></a
+            ><Icon icon="fa6-brands:patreon" /></a
         >
     </div>
 </div>

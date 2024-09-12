@@ -29,6 +29,9 @@ importers:
       '@astrojs/vercel':
         specifier: ^7.8.0
         version: 7.8.0(astro@4.15.2(@types/node@22.5.2)(rollup@4.21.2)(sass@1.77.8)(typescript@5.6.2))
+      '@iconify/svelte':
+        specifier: ^4.0.2
+        version: 4.0.2(svelte@4.2.19)
       '@unocss/astro':
         specifier: ^0.62.3
         version: 0.62.3(rollup@4.21.2)(vite@5.4.2(@types/node@22.5.2)(sass@1.77.8))
@@ -62,6 +65,9 @@ importers:
       svelte:
         specifier: ^4.2.19
         version: 4.2.19
+      svelte-icons:
+        specifier: ^2.1.0
+        version: 2.1.0
       tailwind-merge:
         specifier: ^2.5.2
         version: 2.5.2
@@ -1001,6 +1007,11 @@ packages:
 
   '@iconify/icons-fa6-brands@1.2.11':
     resolution: {integrity: sha512-M45384DjmylDO74UJpL1E//B8R0bKu36Tkf80w394Iuo7BP5u1k4Ca3QgB9L5NzMyIwbhAKKEBFOo0NcfsSg5Q==}
+
+  '@iconify/svelte@4.0.2':
+    resolution: {integrity: sha512-6BSrU85FzGfhQD3bTXpnkCCvBAglEt8T9QednVnXAYm4C+d3464y+pYMzhQNJm5mPId2cuiw+2wXlDflXllHDw==}
+    peerDependencies:
+      svelte: '>4.0.0'
 
   '@iconify/tools@4.0.6':
     resolution: {integrity: sha512-riEQggXVuZNXjRdo+aKT0rkzn2XHslIqat8mdW/oVu5mLmP/95Hi+iaq4keT7WwMD97jsYPXMQ6QMCw0EWpRNw==}
@@ -3428,6 +3439,9 @@ packages:
     peerDependencies:
       svelte: ^3.19.0 || ^4.0.0
 
+  svelte-icons@2.1.0:
+    resolution: {integrity: sha512-rHPQjweEc9fGSnvM0/4gA3pDHwyZyYsC5KhttCZRhSMJfLttJST5Uq0B16Czhw+HQ+HbSOk8kLigMlPs7gZtfg==}
+
   svelte2tsx@0.7.18:
     resolution: {integrity: sha512-PCOhH7uQaV472ZvNAcnkvShjFRMMkKUc/eNJImQMH9T4CyHeQpdatedFrEjaMCsweFb/oo3a6bv4qtdfaCPw8g==}
     peerDependencies:
@@ -4696,6 +4710,11 @@ snapshots:
   '@iconify/icons-fa6-brands@1.2.11':
     dependencies:
       '@iconify/types': 2.0.0
+
+  '@iconify/svelte@4.0.2(svelte@4.2.19)':
+    dependencies:
+      '@iconify/types': 2.0.0
+      svelte: 4.2.19
 
   '@iconify/tools@4.0.6':
     dependencies:
@@ -7800,6 +7819,8 @@ snapshots:
   svelte-hmr@0.16.0(svelte@4.2.19):
     dependencies:
       svelte: 4.2.19
+
+  svelte-icons@2.1.0: {}
 
   svelte2tsx@0.7.18(svelte@4.2.19)(typescript@5.6.2):
     dependencies:

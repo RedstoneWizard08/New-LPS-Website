@@ -1,6 +1,6 @@
 ---
-import Footer from "../../../components/Footer.astro";
-import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.svelte";
+import Header from "../../../components/Header.svelte";
 import Layout from "../../../layouts/Layout.astro";
 import { formatNumber } from "../../../api/fmt";
 import { marked } from "marked";
@@ -146,8 +146,7 @@ const downloads = formatNumber(data.downloads);
                 for (const spoiler of spoilers) {
                     const el = document.createElement("button");
 
-                    el.className =
-                        "spoiler-opener font-mc-mono rd-lg color-green-6 hover:color-green-2 transition-all transition-duration-250";
+                    el.className = "spoiler-opener font-mc-mono rd-lg color-green-6 hover:color-green-2 transition-all transition-duration-250";
                     el.innerText = "Show Spoiler";
 
                     el.addEventListener("click", () => {

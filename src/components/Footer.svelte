@@ -1,27 +1,27 @@
----
-import { Image } from "astro:assets";
-
-import banner from "../images/banner-new.png";
-import icon from "../images/favicon.png";
+<script lang="ts">
+import banner from "../images/banner-new.png?url";
+import icon from "../images/favicon.png?url";
 import { GIT_BRANCH, GIT_HASH, GIT_REPO } from "astro:env/client";
----
+</script>
 
 <div
     class="w-full bg-dark flex flex-col justify-center items-center p-10 footer"
 >
-    <Image
+    <img
         src={banner}
         alt="Luna Pixel Studios logo"
         class="w-15% mb-2.5 logo"
     />
+
     <p class="font-mc-mono text-lg flex flex-row items-center justify-between">
-        <Image
+        <img
             src={icon}
             alt="Luna Pixel Studios logo"
             class="w-10% rd-lg logo-2"
         />
         &copy; 2024 Luna Pixel Studios
     </p>
+
     <a
         class="font-mc-mono underline text-sm hash"
         href={`${GIT_REPO}/commit/${GIT_HASH}`}

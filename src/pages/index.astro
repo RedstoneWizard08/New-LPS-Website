@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Card from "../components/Card.svelte";
+import Header from "../components/Header.svelte";
+import Footer from "../components/Footer.svelte";
 
 import banner from "../images/banner-new.png";
 import bisect from "../images/bisect.jpeg";
@@ -26,14 +26,14 @@ export const prerender = true;
         </div>
 
         <Card
-            class="prii"
+            className="prii"
             title="Prominence II [RPG]"
             desc="Discover the most immersive and story-rich modpack ever created!\nCheck out the **Prominence II [RPG]** modpack by ElocinDev."
             link="https://www.curseforge.com/minecraft/modpacks/prominence-2-rpg"
         />
 
         <Card
-            class="stp"
+            className="stp"
             title="SteamPunk"
             desc="Explore this incredible Create-centric steampunk-era inspired modpack!\nCheck out the **SteamPunk [LPS]** modpack by SHXRKIE."
             link="https://www.curseforge.com/minecraft/modpacks/steam-punk"
@@ -41,14 +41,14 @@ export const prerender = true;
         />
 
         <Card
-            class="fn"
+            className="fn"
             title="Fear Nightfall"
             desc="Experience the scariest modpack ever conceived!\nCheck out **Fear Nightfall** by SHXRKIE."
             link="https://www.curseforge.com/minecraft/modpacks/fear-nightfall"
         />
 
         <Card
-            class="bmc"
+            className="bmc"
             title="Better Minecraft"
             desc="Discover a beautiful Minecraft upgrade, rich with content to explore!\nCheck out the **Better Minecraft** series by SHXRKIE."
             link="https://www.curseforge.com/minecraft/modpacks/better-mc-neoforge-bmc5"
@@ -56,14 +56,14 @@ export const prerender = true;
         />
 
         <Card
-            class="mmc"
+            className="mmc"
             title="Medieval Minecraft"
             desc="Discover the greatest medieval fantasy RPG modpack!\nCheck out the **Medieval Minecraft** series by SHXRKIE."
             link="https://www.curseforge.com/minecraft/modpacks/medieval-mc-mmc4"
         />
 
         <Card
-            class="wda"
+            className="wda"
             title="When Dungeons Arise"
             desc="Discover many shapes and sizes of dungeons like you've never seen them before!\nCheck out **When Dungeons Arise** by Aureljz."
             link="https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise"
