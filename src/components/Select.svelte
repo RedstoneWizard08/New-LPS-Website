@@ -23,7 +23,7 @@
             {#each options as opt}
                 <DropdownMenu.RadioItem
                     value={opt}
-                    class="color-white hover:bg-dark-5 transition-all transition-duration-250 hover:color-white cursor-pointer font-mc-mono"
+                    class="color-white hover:bg-dark-5 transition-all transition-duration-250 hover:color-white cursor-pointer font-mc-mono text-lg"
                     >{categoryName(opt)}</DropdownMenu.RadioItem
                 >
             {/each}

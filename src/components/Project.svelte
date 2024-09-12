@@ -1,6 +1,4 @@
 <script lang="ts">
-    import curseForge from "../icons/curseforge.svg?url";
-    import modrinth from "../icons/modrinth.svg?url";
     import { formatNumber } from "../api/fmt";
     import type { CommonProject } from "../api/schema/project";
 
@@ -13,7 +11,7 @@
     class="flex flex-row bg-dark-2 rd-lg p-2 w-full mr-0 item"
     href={`/projects/${data.source}/${data.id}`}
 >
-    <img src={data.iconUrl} alt={data.name} class="w-20% rd-lg mr-5" />
+    <img src={data.iconUrl} alt={data.name} class="w-20% rd-lg mr-5" decoding="async" loading="lazy" />
 
     <div class="flex flex-col">
         <p class="text-lg font-mc title">{data.name}</p>

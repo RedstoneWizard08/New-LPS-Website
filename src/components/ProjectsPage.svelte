@@ -53,6 +53,10 @@
         grid-gap: 10px;
     }
 
+    .projects {
+        flex: 1 0 auto;
+    }
+
     @media screen and (max-width: 900px) {
         .items {
             display: flex;

@@ -142,7 +142,6 @@ const downloads = formatNumber(data.downloads);
             <script>
                 const desc = document.querySelector(".project-desc")!;
                 const spoilers = desc.querySelectorAll(".spoiler");
-                const imgs = desc.querySelectorAll("img");
 
                 for (const spoiler of spoilers) {
                     const el = document.createElement("button");
@@ -156,12 +155,6 @@ const downloads = formatNumber(data.downloads);
                     });
 
                     desc.insertBefore(el, spoiler);
-                }
-
-                for (const img of imgs) {
-                    if (img.src.startsWith("https://i.imgur.com/")) continue;
-
-                    img.src = `/api/image?url=${encodeURIComponent(img.src)}`;
                 }
             </script>
         </div>

@@ -85,14 +85,19 @@ export const getAllCurseProjects = async (): Promise<CurseForgeMod[]> => {
     ];
 
     const classes = [6, 4471, 6945, 12, 4559, 6552];
+    const promises: Promise<CurseForgeMod[]>[] = [];
     const items: CurseForgeMod[] = [];
 
     for (const user of users) {
         for (const cl of classes) {
-            for (const item of await getModsForUserWithClass(user, cl)) {
-                if (!items.find((v) => v.id == item.id)) {
-                    items.push(item);
-                }
+            promises.push(getModsForUserWithClass(user, cl));
+        }
+    }
+
+    for (const list of await Promise.all(promises)) {
+        for (const item of list) {
+            if (!items.find((v) => v.id == item.id)) {
+                items.push(item);
             }
         }
     }

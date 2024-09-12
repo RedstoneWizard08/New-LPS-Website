@@ -8,7 +8,6 @@ import node from "@astrojs/node";
 import cloudflare from "@astrojs/cloudflare";
 import vercel from "@astrojs/vercel/serverless";
 import cp from "child_process";
-
 import svelte from "@astrojs/svelte";
 
 const hash = cp.execSync("git rev-parse --short HEAD").toString().trim();
