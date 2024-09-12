@@ -25,3 +25,4 @@ pnpm-debug.log*
 .wrangler
 .vercel
 .svelte-kit
+build
