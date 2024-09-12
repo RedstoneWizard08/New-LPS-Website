@@ -18,12 +18,12 @@
         class="font-mc-mono bg-dark-3 p-5 pt-1.5 pb-1.5 rd-lg b-1 b-transparent b-solid hover:bg-dark-2 transition-all transition-duration-250 hover:border-cwhite text-lg"
         >{categoryName(value || defaultValue)}</DropdownMenu.Trigger
     >
-    <DropdownMenu.Content class="bg-dark-3">
+    <DropdownMenu.Content class="bg-dark-3 p-2 rd-lg">
         <DropdownMenu.RadioGroup bind:value class="bg-dark-3">
             {#each options as opt}
                 <DropdownMenu.RadioItem
                     value={opt}
-                    class="color-white hover:bg-dark-5 transition-all transition-duration-250 hover:color-white cursor-pointer font-mc-mono text-lg"
+                    class="color-white hover:bg-dark-5 transition-all transition-duration-250 hover:color-white cursor-pointer font-mc-mono text-lg p-1 pl-7 pr-4 rd-lg"
                     >{categoryName(opt)}</DropdownMenu.RadioItem
                 >
             {/each}

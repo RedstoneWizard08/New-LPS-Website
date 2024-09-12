@@ -1,57 +1,65 @@
 <script lang="ts">
     import Icon from "@iconify/svelte";
     import icon from "../images/favicon.png?url";
+    import { goto } from "$app/navigation";
 </script>
 
 <div
-    class="w-full bg-dark pos-fixed p-2 flex flex-row justify-between items-center header z-10"
+    class="bg-dark pos-fixed p-2 flex flex-row justify-between items-center w-full header z-10"
 >
     <div class="flex flex-row justify-start items-center">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
         <img
             src={icon}
             alt="Luna Pixel Studios Logo"
-            class="mr-5 rd-lg logo w-5% cursor-pointer"
+            class="mr-5 rd-lg logo w-5% cursor-pointer rd-lg"
             id="home-img"
             loading="eager"
+            on:click={() => goto("/")}
         />
 
-        <script>
-            const img = document.querySelector("#home-img");
-
-            img?.addEventListener("click", () => {
-                window.location.replace("/");
-            });
-        </script>
-
-        <a href="/" class="font-mc-mono text-lg mr-5 underline hide-mobile"
+        <a
+            href="/"
+            class="font-mc-mono text-lg mr-5 underline hide-mobile text-white"
             >Home</a
         >
         <a
             href="/projects"
-            class="font-mc-mono text-lg mr-5 underline hide-mobile">Projects</a
+            class="font-mc-mono text-lg mr-5 underline hide-mobile text-white"
+            >Projects</a
         >
         <a
             href="https://www.bisecthosting.com/LunaPixel"
-            class="font-mc-mono text-lg underline hide-mobile">Hosting</a
+            class="font-mc-mono text-lg underline hide-mobile text-white"
+            >Hosting</a
         >
     </div>
 
-    <div class="flex flex-row justify-start items-center">
-        <a href="https://twitter.com/lunapixelstudio" class="mr-5"
+    <div class="flex flex-row justify-start items-center text-white">
+        <a href="https://twitter.com/lunapixelstudio" class="mr-5 text-white"
             ><Icon icon="fa6-brands:twitter" /></a
         >
 
-        <a href="https://lunapixel.studio/discord" class="mr-5"
+        <a href="https://lunapixel.studio/discord" class="mr-5 text-white"
             ><Icon icon="fa6-brands:discord" /></a
         >
 
-        <a href="https://www.patreon.com/LunaPixelStudios"
+        <a href="https://www.patreon.com/LunaPixelStudios" class="text-white"
             ><Icon icon="fa6-brands:patreon" /></a
         >
     </div>
 </div>
 
 <style lang="scss">
+    .logo {
+        object-fit: cover;
+    }
+
+    .header {
+        top: 0;
+    }
+
     @media screen and (max-width: 600px) {
         .header {
             height: 3.5rem;

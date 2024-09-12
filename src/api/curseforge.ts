@@ -1,4 +1,4 @@
-import { CURSEFORGE_KEY } from "astro:env/server";
+import { CURSEFORGE_KEY } from "$env/static/private";
 import { CURSEFORGE_USER_ID, PAGINATION_SIZE } from "../config";
 import { CurseForgeMod } from "./schema/curseforge/mod";
 import type { CurseForgePaginatedResponse } from "curseforge-api/v1/Client";

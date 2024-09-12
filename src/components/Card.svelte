@@ -6,7 +6,7 @@
     export let link: string;
 
     const realDesc = desc
-        .replace("\n", "<br />")
+        .replace("\\n", "<br />")
         .replace(/\*\*([^\*]+)\*\*/gm, "<b><u>$1</u></b>");
 </script>
 
@@ -16,7 +16,7 @@
     class={`w-full min-h-70% flex flex-col p-l-5% p-t-5% p-r-5% card items-start ${className}`}
     class:right
 >
-    <p class="font-mc mb-xl text-3xl">{title}</p>
+    <p class="font-mc mb-xl text-3xl text" class:right>{title}</p>
 
     <p class="font-mc-mono text-xl text" class:right>
         {@html realDesc}
@@ -35,6 +35,9 @@
         border-bottom: 0.5px solid rgba(255, 255, 255, 0.25);
         transition: background-size 1s ease;
         background-size: 100%;
+        width: 100%;
+        padding: 2rem;
+        padding-bottom: 16rem;
 
         &:hover {
             background-size: 110%;

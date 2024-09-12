@@ -1,19 +1,21 @@
 <script lang="ts">
-import banner from "../images/banner-new.png?url";
-import icon from "../images/favicon.png?url";
-import { GIT_BRANCH, GIT_HASH, GIT_REPO } from "astro:env/client";
+    import {
+        PUBLIC_GIT_BRANCH,
+        PUBLIC_GIT_HASH,
+        PUBLIC_GIT_REPO,
+    } from "$env/static/public";
+    import banner from "../images/banner-new.png?url";
+    import icon from "../images/favicon.png?url";
 </script>
 
 <div
-    class="w-full bg-dark flex flex-col justify-center items-center p-10 footer"
+    class="bg-dark flex flex-col justify-center items-center p-10 w-full footer"
 >
-    <img
-        src={banner}
-        alt="Luna Pixel Studios logo"
-        class="w-15% mb-2.5 logo"
-    />
+    <img src={banner} alt="Luna Pixel Studios logo" class="w-15% mb-2.5 logo" />
 
-    <p class="font-mc-mono text-lg flex flex-row items-center justify-between">
+    <p
+        class="font-mc-mono text-lg flex flex-row items-center justify-between text-white"
+    >
         <img
             src={icon}
             alt="Luna Pixel Studios logo"
@@ -23,12 +25,12 @@ import { GIT_BRANCH, GIT_HASH, GIT_REPO } from "astro:env/client";
     </p>
 
     <a
-        class="font-mc-mono underline text-sm hash"
-        href={`${GIT_REPO}/commit/${GIT_HASH}`}
+        class="font-mc-mono underline text-sm hash text-white mb-0"
+        href={`${PUBLIC_GIT_REPO}/commit/${PUBLIC_GIT_HASH}`}
         target="_blank"
-        >{GIT_REPO.split("/")[GIT_REPO.split("/").length - 1]}/{GIT_BRANCH}@{
-            GIT_HASH
-        }</a
+        >{PUBLIC_GIT_REPO.split("/")[
+            PUBLIC_GIT_REPO.split("/").length - 1
+        ]}/{PUBLIC_GIT_BRANCH}@{PUBLIC_GIT_HASH}</a
     >
 </div>
 

@@ -2,7 +2,6 @@ import type { ModrinthProject } from "./modrinth/project";
 import type { ModrinthMember } from "./modrinth/members";
 import { getModDescription } from "../curseforge";
 import type { CurseForgeMod } from "./curseforge/mod";
-import { CLOUDFLARE } from "astro:env/server";
 import type { Category } from "./category";
 import { mapCurseCategoryToCommon } from "./curseforge/category";
 
@@ -56,7 +55,7 @@ export const mapModrinthToCommon = async (
 ): Promise<CommonProject> => {
     let author = "LunaPixelStudios";
 
-    if (CLOUDFLARE != 1) {
+    if (import.meta.env.CLOUDFLARE != 1) {
         const url = `https://api.modrinth.com/v2/project/${proj.id}/members`;
 
         const members: ModrinthMember[] = await fetch(url).then((v) =>

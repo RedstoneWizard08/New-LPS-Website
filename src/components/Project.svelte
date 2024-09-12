@@ -8,10 +8,16 @@
 </script>
 
 <a
-    class="flex flex-row bg-dark-2 rd-lg p-2 w-full mr-0 item"
+    class="flex flex-row bg-dark-2 rd-lg p-2 w-full mr-0 ml-0 item"
     href={`/projects/${data.source}/${data.id}`}
 >
-    <img src={data.iconUrl} alt={data.name} class="w-20% rd-lg mr-5" decoding="async" loading="lazy" />
+    <img
+        src={data.iconUrl}
+        alt={data.name}
+        class="w-20% rd-lg mr-5"
+        decoding="async"
+        loading="lazy"
+    />
 
     <div class="flex flex-col">
         <p class="text-lg font-mc title">{data.name}</p>
@@ -42,7 +48,9 @@
     </div>
 </a>
 
-<style lang="scss">
+<style scoped lang="scss">
+    @import "$/styles/icons.scss";
+
     img {
         object-fit: cover;
     }
@@ -57,22 +65,6 @@
             transform: scale(1.1);
             border: 1px solid white;
         }
-    }
-
-    .icon-cf {
-        background-image: url(../icons/curseforge.svg);
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 1.5rem;
-    }
-
-    .icon-mr {
-        background-image: url(../icons/modrinth.svg);
-        background-position: center;
-        background-size: contain;
-        background-repeat: no-repeat;
-        height: 1.5rem;
     }
 
     @media screen and (max-width: 900px) {

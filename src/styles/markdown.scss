@@ -1,0 +1,15 @@
+.project-desc {
+    a {
+        text-decoration: underline;
+    }
+
+    .spoiler {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+
+        &.active {
+            max-height: unset;
+        }
+    }
+}

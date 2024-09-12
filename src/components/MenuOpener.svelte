@@ -1,19 +1,8 @@
 <script lang="ts">
-    export let className = "";
-
-    let bar0: HTMLSpanElement;
-    let bar1: HTMLSpanElement;
-    let bar2: HTMLSpanElement;
+    export let active = false;
 
     const clicked = () => {
-        const bars = [bar0, bar1, bar2];
-        const menus = document.querySelectorAll(".menu");
-
-        for (const bar of bars) {
-            bar.classList.toggle("active");
-        }
-
-        menus.forEach((menu) => menu.classList.toggle("active"));
+        active = !active;
     };
 </script>
 
@@ -21,14 +10,17 @@
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div
     on:click={clicked}
-    class={`flex flex-col justify-between items-center w-26px h-22px hover:cursor-pointer z-4 fixed ${className}`}
+    class:active
+    class="flex flex-col justify-between items-center w-26px h-22px hover:cursor-pointer z-12 fixed ml-4 mt-4 mobile-only"
 >
-    <span class="bar b0" bind:this={bar0}></span>
-    <span class="bar b1" bind:this={bar1}></span>
-    <span class="bar b2" bind:this={bar2}></span>
+    <span class="bar b0" class:active></span>
+    <span class="bar b1" class:active></span>
+    <span class="bar b2" class:active></span>
 </div>
 
-<style lang="scss">
+<style scoped lang="scss">
+    @import "$/styles/global.scss";
+
     .bar {
         height: 3px;
         width: 100%;
