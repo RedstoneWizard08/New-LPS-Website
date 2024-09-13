@@ -8,8 +8,8 @@ RUN apt-get update && \
 COPY . /usr/src/website
 WORKDIR /usr/src/website
 
-ENV HOST 0.0.0.0
-ENV PORT 4000
+ENV HOST=0.0.0.0
+ENV PORT=4000
 
 RUN pnpm install && \
     pnpm run build

@@ -25,6 +25,7 @@
     >
 </div>
 
+<!-- svelte-ignore css-unused-selector -->
 <style scoped lang="scss">
     @import "$/styles/global.scss";
 

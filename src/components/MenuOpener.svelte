@@ -18,6 +18,7 @@
     <span class="bar b2" class:active></span>
 </div>
 
+<!-- svelte-ignore css-unused-selector -->
 <style scoped lang="scss">
     @import "$/styles/global.scss";
 

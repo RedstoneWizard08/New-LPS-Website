@@ -1,4 +1,4 @@
-import { CURSEFORGE_KEY } from "$env/static/private";
+import { env } from "$env/dynamic/private";
 import { CURSEFORGE_USER_ID, PAGINATION_SIZE } from "../config";
 import { CurseForgeMod } from "./schema/curseforge/mod";
 import type { CurseForgePaginatedResponse } from "curseforge-api/v1/Client";
@@ -9,7 +9,7 @@ export const getModDescription = async (id: number): Promise<string> => {
     return (
         await fetch(`https://api.curseforge.com/v1/mods/${id}/description`, {
             headers: {
-                "x-api-key": CURSEFORGE_KEY,
+                "x-api-key": env.CURSEFORGE_KEY,
             },
         }).then((v) => v.json())
     ).data;
@@ -34,7 +34,7 @@ const getModsForUserWithClass_ = async (
         url,
         {
             headers: {
-                "x-api-key": CURSEFORGE_KEY,
+                "x-api-key": env.CURSEFORGE_KEY,
             },
         },
     ).then((v) => v.json());
