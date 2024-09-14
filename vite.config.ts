@@ -1,4 +1,5 @@
 import uno from "@unocss/svelte-scoped/vite";
+import { enhancedImages } from "@sveltejs/enhanced-img";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite";
 import cp from "child_process";
@@ -19,7 +20,11 @@ if (process.env.CLOUDFLARE) {
 }
 
 export default defineConfig({
-    plugins: [uno({ injectReset: "@unocss/reset/tailwind.css" }), sveltekit()],
+    plugins: [
+        uno({ injectReset: "@unocss/reset/tailwind.css" }),
+        enhancedImages(),
+        sveltekit(),
+    ],
 
     server: {
         port: 4000,
@@ -30,5 +35,9 @@ export default defineConfig({
             clientPort: 443,
             protocol: "wss",
         },
+    },
+
+    build: {
+        minify: "terser",
     },
 });

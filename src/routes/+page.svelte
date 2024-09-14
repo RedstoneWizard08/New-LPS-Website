@@ -1,6 +1,5 @@
 <script lang="ts">
     import Card from "../components/Card.svelte";
-
     import banner from "../images/banner-new.png";
     import bisect from "../images/bisect.jpeg";
 </script>
