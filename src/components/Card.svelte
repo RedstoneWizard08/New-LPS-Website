@@ -23,7 +23,7 @@
     </p>
 </a>
 
-<style lang="scss">
+<style scoped lang="scss">
     .text {
         &.right {
             text-align: right;

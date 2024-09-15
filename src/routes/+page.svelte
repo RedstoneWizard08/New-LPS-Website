@@ -1,7 +1,7 @@
 <script lang="ts">
     import Card from "../components/Card.svelte";
     import banner from "../images/banner-new.png";
-    import bisect from "../images/bisect.jpeg";
+    import bisect from "../images/bisect2.png";
 </script>
 
 <svelte:head>
@@ -87,7 +87,7 @@
 
     <p class="text-3xl b-b-1 b-b-sky mb-10 font-mc title">Need a server?</p>
 
-    <img src={bisect} alt="Bisect Hosting" class="w-100% bg-blue rd-lg mb-5" />
+    <img src={bisect} alt="Bisect Hosting" class="w-100% bg-blue rd-lg mb-10" />
 
     <p class="text-lg text-center font-mc-mono text">
         Bisect Hosting has all of our modpacks ready for installation!

@@ -11,7 +11,7 @@ export default defineConfig({
             // darkSelector: "[data-kb-theme="
         }),
     ],
-    
+
     content: {
         pipeline: {
             include: [

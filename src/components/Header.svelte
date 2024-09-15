@@ -25,6 +25,11 @@
             >Home</a
         >
         <a
+            href="/about"
+            class="font-mc-mono text-lg mr-5 underline hide-mobile text-white"
+            >About</a
+        >
+        <a
             href="/projects"
             class="font-mc-mono text-lg mr-5 underline hide-mobile text-white"
             >Projects</a

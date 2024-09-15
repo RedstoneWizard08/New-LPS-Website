@@ -14,6 +14,11 @@
         >Home</a
     >
     <a
+        href="/about"
+        class="font-mc-mono text-lg underline"
+        on:click={setInactive}>About</a
+    >
+    <a
         href="/projects"
         class="font-mc-mono text-lg underline"
         on:click={setInactive}>Projects</a
