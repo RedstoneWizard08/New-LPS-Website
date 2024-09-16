@@ -87,7 +87,11 @@
 
     <p class="text-3xl b-b-1 b-b-sky mb-10 font-mc title">Need a server?</p>
 
-    <img src={bisect} alt="Bisect Hosting" class="w-75% bg-blue rd-lg mb-10 sponsor" />
+    <img
+        src={bisect}
+        alt="Bisect Hosting"
+        class="w-75% bg-blue rd-lg mb-10 sponsor"
+    />
 
     <p class="text-lg text-center font-mc-mono text">
         Bisect Hosting has all of our modpacks ready for installation!

@@ -9,7 +9,8 @@ export const getModDescription = async (id: number): Promise<string> => {
     return (
         await fetch(`https://api.curseforge.com/v1/mods/${id}/description`, {
             headers: {
-                "x-api-key": (env.CURSEFORGE_KEY || env.PRIVATE_CURSEFORGE_KEY)!,
+                "x-api-key": (env.CURSEFORGE_KEY ||
+                    env.PRIVATE_CURSEFORGE_KEY)!,
             },
         }).then((v) => v.json())
     ).data;
@@ -34,7 +35,8 @@ const getModsForUserWithClass_ = async (
         url,
         {
             headers: {
-                "x-api-key": (env.CURSEFORGE_KEY || env.PRIVATE_CURSEFORGE_KEY)!,
+                "x-api-key": (env.CURSEFORGE_KEY ||
+                    env.PRIVATE_CURSEFORGE_KEY)!,
             },
         },
     ).then((v) => v.json());
