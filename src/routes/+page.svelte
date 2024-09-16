@@ -21,15 +21,15 @@
 <Card
     className="prii"
     title="Prominence II [RPG]"
-    desc="Discover the most immersive and story-rich modpack ever created!\nCheck out the **Prominence II [RPG]** modpack by ElocinDev."
-    link="https://www.curseforge.com/minecraft/modpacks/prominence-2-rpg"
+    desc="Discover the most immersive and story-rich modpack ever created!\nCheck out the **Prominence II [RPG]** modpack by SHXRKIE & ElocinDev."
+    link="/projects/curseforge/466901"
 />
 
 <Card
     className="stp"
     title="SteamPunk"
     desc="Explore this incredible Create-centric steampunk-era inspired modpack!\nCheck out the **SteamPunk [LPS]** modpack by SHXRKIE."
-    link="https://www.curseforge.com/minecraft/modpacks/steam-punk"
+    link="/projects/curseforge/643605"
     right
 />
 
@@ -37,14 +37,14 @@
     className="fn"
     title="Fear Nightfall"
     desc="Experience the scariest modpack ever conceived!\nCheck out **Fear Nightfall** by SHXRKIE."
-    link="https://www.curseforge.com/minecraft/modpacks/fear-nightfall"
+    link="/projects/curseforge/887839"
 />
 
 <Card
     className="bmc"
     title="Better Minecraft"
     desc="Discover a beautiful Minecraft upgrade, rich with content to explore!\nCheck out the **Better Minecraft** series by SHXRKIE."
-    link="https://www.curseforge.com/minecraft/modpacks/better-mc-neoforge-bmc5"
+    link="/projects/curseforge/462042"
     right
 />
 
@@ -52,14 +52,14 @@
     className="mmc"
     title="Medieval Minecraft"
     desc="Discover the greatest medieval fantasy RPG modpack!\nCheck out the **Medieval Minecraft** series by SHXRKIE."
-    link="https://www.curseforge.com/minecraft/modpacks/medieval-mc-mmc4"
+    link="/projects/curseforge/876851"
 />
 
 <Card
     className="wda"
     title="When Dungeons Arise"
     desc="Discover many shapes and sizes of dungeons like you've never seen them before!\nCheck out **When Dungeons Arise** by Aureljz."
-    link="https://www.curseforge.com/minecraft/mc-mods/when-dungeons-arise"
+    link="/projects/curseforge/442508"
     right
 />
 
@@ -87,7 +87,7 @@
 
     <p class="text-3xl b-b-1 b-b-sky mb-10 font-mc title">Need a server?</p>
 
-    <img src={bisect} alt="Bisect Hosting" class="w-100% bg-blue rd-lg mb-10" />
+    <img src={bisect} alt="Bisect Hosting" class="w-75% bg-blue rd-lg mb-10 sponsor" />
 
     <p class="text-lg text-center font-mc-mono text">
         Bisect Hosting has all of our modpacks ready for installation!
@@ -133,6 +133,10 @@
 
         .banner {
             width: 80%;
+        }
+
+        .sponsor {
+            width: 100%;
         }
     }
 </style>

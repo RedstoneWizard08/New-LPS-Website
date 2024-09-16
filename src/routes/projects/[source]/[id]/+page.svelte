@@ -1,4 +1,5 @@
 <script lang="ts">
+    import "$/styles/desc.scss";
     import "$/styles/markdown.scss";
     import { formatNumber } from "$/api/fmt";
     import { marked } from "marked";
@@ -147,7 +148,7 @@
     </script> -->
 </div>
 
-<style scoped lang="scss">
+<style lang="scss">
     @import "$/styles/global.scss";
     @import "$/styles/icons.scss";
 
