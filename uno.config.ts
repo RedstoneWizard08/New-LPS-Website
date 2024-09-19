@@ -36,8 +36,16 @@ export default defineConfig({
                 DEFAULT: "rgb(60, 219, 54)",
             },
 
+            mrdark: {
+                DEFAULT: "#2da328",
+            },
+
             curseforge: {
                 DEFAULT: "#EB622B",
+            },
+
+            cfdark: {
+                DEFAULT: "#b34a21",
             },
 
             cwhite: {

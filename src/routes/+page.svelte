@@ -1,7 +1,41 @@
 <script lang="ts">
+    import { onMount } from "svelte";
     import Card from "../components/Card.svelte";
     import banner from "../images/banner-new.png";
-    import bisect from "../images/bisect2_up2.png";
+    import bisect from "../images/bisect2.png";
+
+    // Is this overengineered? Yes. Why? Because. Deal with it.
+    let text = "";
+    let adding = true;
+
+    const finalText = "Join the adventure!";
+    const addCharDelay = 150;
+
+    const canAddChar = () => text.length < finalText.length;
+
+    const addChar = () => {
+        const index = text.length;
+
+        if (canAddChar()) {
+            text += finalText[index];
+        }
+    };
+
+    const scheduleAddChar = () => {
+        addChar();
+
+        if (canAddChar()) {
+            setTimeout(scheduleAddChar, addCharDelay);
+        } else {
+            setTimeout(() => {
+                adding = false;
+            }, addCharDelay);
+        }
+    };
+
+    onMount(() => {
+        scheduleAddChar();
+    });
 </script>
 
 <svelte:head>
@@ -15,7 +49,7 @@
         class="w-40% banner"
         loading="eager"
     />
-    <p class="text-20pt font-mc">Join the adventure!</p>
+    <p class="text-20pt font-mc" class:adding>{text}</p>
 </div>
 
 <Card
@@ -90,7 +124,7 @@
     <img
         src={bisect}
         alt="Bisect Hosting"
-        class="w-75% bg-blue rd-lg mb-10 sponsor"
+        class="w-50% bg-blue rd-lg mb-10 sponsor"
     />
 
     <p class="text-lg text-center font-mc-mono text">
@@ -120,6 +154,28 @@
         justify-content: center;
 
         @include bg-img("../images/hero.png");
+    }
+
+    .adding::after {
+        content: "";
+        margin-left: 3px;
+        width: 5px;
+        height: 65%;
+        background: white;
+        display: inline-block;
+        animation: cursor-blink 1s steps(2) infinite;
+    }
+
+    @keyframes cursor-blink {
+        0% {
+            opacity: 0;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        .sponsor {
+            width: 100%;
+        }
     }
 
     @media screen and (max-width: 600px) {

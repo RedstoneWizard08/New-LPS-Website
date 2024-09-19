@@ -18,7 +18,7 @@
 <a
     href={`https://github.com/${username}`}
     target="_blank"
-    class="bg-dark-3 w-full flex p-8 flex-row items-center justify-start pl-50 pr-50 person-card"
+    class="bg-dark-3 hover:bg-dark-4 transition-all transition-duration-250 w-full flex p-8 flex-row items-center justify-start pl-50 pr-50 person-card"
     class:right
 >
     {#if !right}

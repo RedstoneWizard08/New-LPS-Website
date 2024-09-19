@@ -52,10 +52,12 @@
                         >&nbsp;| {#if data.sources.curseforge}
                             <a
                                 href={data.sources.curseforge}
-                                class="flex flex-row items-center justify-start ml-3 mr-5 underline underline-curseforge"
+                                class="flex flex-row items-center justify-start ml-3 mr-5 underline underline-curseforge hover:underline-cfdark transition-all transition-duration-250"
                             >
                                 <span class="w-6 icon-cf" />
-                                <span class="text-curseforge ml-3">
+                                <span
+                                    class="text-curseforge ml-3 hover:text-cfdark transition-all transition-duration-250"
+                                >
                                     CurseForge
                                 </span>
                             </a>
@@ -63,10 +65,12 @@
                         {#if data.sources.modrinth}
                             <a
                                 href={data.sources.modrinth}
-                                class="flex flex-row items-center justify-start underline underline-modrinth"
+                                class="flex flex-row items-center justify-start underline underline-modrinth hover:underline-mrdark transition-all transition-duration-250"
                             >
                                 <span class="w-6 icon-mr" />
-                                <span class="text-modrinth ml-3">
+                                <span
+                                    class="text-modrinth ml-3 hover:text-mrdark transition-all transition-duration-250"
+                                >
                                     Modrinth
                                 </span>
                             </a>
@@ -88,10 +92,12 @@
                     {#if data.sources.curseforge}
                         <a
                             href={data.sources.curseforge}
-                            class="flex flex-row items-center justify-start mr-5 underline underline-curseforge"
+                            class="flex flex-row items-center justify-start mr-5 underline underline-curseforge hover:underline-cfdark transition-all transition-duration-250"
                         >
                             <span class="w-6 icon-cf" />
-                            <span class="text-curseforge ml-3">
+                            <span
+                                class="text-curseforge ml-3 hover:text-cfdark transition-all transition-duration-250"
+                            >
                                 CurseForge
                             </span>
                         </a>
@@ -99,10 +105,14 @@
                     {#if data.sources.modrinth}
                         <a
                             href={data.sources.modrinth}
-                            class="flex flex-row items-center justify-start underline underline-modrinth"
+                            class="flex flex-row items-center justify-start underline underline-modrinth hover:underline-mrdark transition-all transition-duration-250"
                         >
                             <span class="w-6 icon-mr" />
-                            <span class="text-modrinth ml-3"> Modrinth </span>
+                            <span
+                                class="text-modrinth ml-3 hover:text-mrdark transition-all transition-duration-250"
+                            >
+                                Modrinth
+                            </span>
                         </a>
                     {/if}
                 </p>

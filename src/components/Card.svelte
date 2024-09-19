@@ -12,7 +12,6 @@
 
 <a
     href={link}
-    target="_blank"
     class={`w-full min-h-70% flex flex-col p-l-5% p-t-5% p-r-5% card items-start ${className}`}
     class:right
 >

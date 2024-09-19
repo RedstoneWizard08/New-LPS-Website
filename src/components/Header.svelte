@@ -42,15 +42,21 @@
     </div>
 
     <div class="flex flex-row justify-start items-center text-white">
-        <a href="https://twitter.com/lunapixelstudio" class="mr-5 text-white"
+        <a
+            href="https://twitter.com/lunapixelstudio"
+            class="mr-5 text-white hover:text-gray-3 transition-all transition-duration-250"
             ><Icon icon="fa6-brands:twitter" /></a
         >
 
-        <a href="https://lunapixel.studio/discord" class="mr-5 text-white"
+        <a
+            href="https://lunapixel.studio/discord"
+            class="mr-5 text-white hover:text-gray-3 transition-all transition-duration-250"
             ><Icon icon="fa6-brands:discord" /></a
         >
 
-        <a href="https://www.patreon.com/LunaPixelStudios" class="text-white"
+        <a
+            href="https://www.patreon.com/LunaPixelStudios"
+            class="text-white hover:text-gray-3 transition-all transition-duration-250"
             ><Icon icon="fa6-brands:patreon" /></a
         >
     </div>

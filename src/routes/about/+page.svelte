@@ -9,6 +9,21 @@
 <div
     class="mt-14 p-8 w-full flex flex-row items-center justify-center font-mc text-3xl"
 >
+    About Us
+</div>
+
+<div
+    class="p-30 pt-4 pb-4 text-center w-full flex flex-row items-center justify-center font-mc-mono text-xl"
+>
+    We are a passionate group of modders and modpack developers who strive to
+    create the highest-quality content we possibly can. But we couldn't do that
+    without our community, our amazing team, or the incredible contributions of
+    the community.
+</div>
+
+<div
+    class="p-8 w-full flex flex-row items-center justify-center font-mc text-3xl"
+>
     Our Team
 </div>
 
